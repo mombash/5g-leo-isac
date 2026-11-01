@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Load and evaluate neural or statistical rate selectors."""
 import numpy as np
 import torch
 import time, math, json, threading
@@ -10,7 +10,6 @@ from .parameters import *
 from .model_core import CapacityNet,normalize,flat,cuda_values
 from .context import AssetDirectory
 OUT=AssetDirectory("models")
-old=SimpleNamespace(OLD=AssetDirectory("models"))
 
 
 def vector(a, rich):
@@ -21,7 +20,7 @@ class Reader:
     def __init__(self, name):
         self.name = name
         self.spec = json.loads((OUT / 'model_specs.json').read_text())[name]
-        self.norm = dict(np.load(old.OLD / 'normalization.npz'))
+        self.norm = dict(np.load(OUT / 'normalization.npz'))
         path = OUT / self.spec['checkpoint']
         if self.spec['family'] == 'neural':
             self.model = CapacityNet(self.spec['rich']).cuda().eval()

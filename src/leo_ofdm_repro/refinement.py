@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Refine delay, Doppler and rate estimates and extract phase traces."""
 import numpy as np
 import torch
 import time, math, json, threading

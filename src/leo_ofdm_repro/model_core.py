@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Normalize search features and define the neural rate selector."""
 import numpy as np
 import torch
 import time, math, json, threading

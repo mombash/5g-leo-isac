@@ -5,72 +5,51 @@
   },
   "files": [
     {
-      "path": "models/N5_step500_weights.pt",
-      "sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
-      "bytes": 2262930
+      "path": "models/neural_selector.pt",
+      "bytes": 2262930,
+      "sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8"
     },
     {
-      "path": "models/S5_linear_summary_alpha0.1.npz",
-      "sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
-      "bytes": 27432
-    },
-    {
-      "path": "models/normalization.npz",
-      "sha256": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
-      "bytes": 1843
+      "path": "models/statistical_selector.npz",
+      "bytes": 27432,
+      "sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
     },
     {
       "path": "models/model_specs.json",
-      "sha256": "ef303706e1183ae21582c08ddea969359d599bdef8b1791b5ccba9ddb8824ff8",
-      "bytes": 249
+      "bytes": 215,
+      "sha256": "83dcd819d0f267f20397ddd49c0f59a1a43f5ed0758d10e52b713029c16ccb63"
     },
     {
-      "path": "policies/phase_refinement/rate_prior.npy",
-      "sha256": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49",
-      "bytes": 884
-    },
-    {
-      "path": "policies/final_gate/freeze.json",
-      "sha256": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f",
-      "bytes": 137
+      "path": "models/normalization.npz",
+      "bytes": 1843,
+      "sha256": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a"
     },
     {
       "path": "physical_configuration.json",
-      "sha256": "921a319063657de01040ca2bcd7e4324f484fc7530dce7519c7ba1a4cbe02038",
-      "bytes": 5365
+      "bytes": 5365,
+      "sha256": "921a319063657de01040ca2bcd7e4324f484fc7530dce7519c7ba1a4cbe02038"
+    },
+    {
+      "path": "policies/final_gate/freeze.json",
+      "bytes": 137,
+      "sha256": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f"
+    },
+    {
+      "path": "policies/phase_refinement/rate_prior.npy",
+      "bytes": 884,
+      "sha256": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49"
     }
   ],
-  "operating_point_sha256": "74285fbebead2b1cfb0383a9e5c9982849dd58afa405fa47e3e72af6e4a3f0e1",
-  "submission": {
-    "id": "V18",
-    "source_sha256": "8456942d09b9cc33c253b42d9dbb22db8c09c008c593d4a6e900a78781d6a78b",
-    "pdf_sha256": "d8b592ddceb9b868f0ad684241c7150997129525234ff1e6ea0355ceaf2768d5",
-    "model_freeze_sha256": "74a6455f8553e7f942662f65176af89d60b748484a39a74cc3850f42f0021992",
-    "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b",
-    "final_timing_archive_sha256": "5c7546cf313c7e7067d65dbc5db41bb0ebedf06f128e8e88dd52c04a17691c13"
-  },
   "model_provenance": {
-    "N5": {
-      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
-      "asset": "models/N5_step500_weights.pt",
+    "neural": {
+      "asset": "models/neural_selector.pt",
       "exported_asset_sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
-      "export": "model state_dict CPU tensors only; no optimizer/RNG/training metadata",
-      "tensors_identical": true,
-      "tensors": 42,
-      "original_checkpoint_top_level_keys": [
-        "cuda_rng",
-        "model",
-        "numpy_rng",
-        "optimizer",
-        "step",
-        "torch_rng"
-      ]
+      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3"
     },
-    "S5": {
-      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
-      "asset": "models/S5_linear_summary_alpha0.1.npz",
+    "statistical": {
+      "asset": "models/statistical_selector.npz",
       "exported_asset_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
-      "byte_identical": true
+      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
     }
   }
 }

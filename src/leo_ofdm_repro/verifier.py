@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Evaluate and refine local coherent delay–Doppler hypotheses."""
 import numpy as np
 import torch
 import time, math, json, threading

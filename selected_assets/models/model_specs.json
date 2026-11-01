@@ -1,12 +1,12 @@
 {
-  "query_rich_step1000": {
+  "neural": {
     "family": "neural",
     "rich": true,
-    "checkpoint": "N5_step500_weights.pt"
+    "checkpoint": "neural_selector.pt"
   },
-  "linear_summary_alpha0.1": {
+  "statistical": {
     "family": "linear",
     "rich": false,
-    "checkpoint": "S5_linear_summary_alpha0.1.npz"
+    "checkpoint": "statistical_selector.npz"
   }
 }

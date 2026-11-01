@@ -16,7 +16,7 @@ function occ = occupancy_mask(cfg, mode, seed)
             occ.prbSet=unique(round(linspace(0,nRB-1,8)));
         case "reference_only"
             occ.prbSet=[]; occ.slotAllocation=[]; occ.pdsch_enable=false;
-        case "sparse" % legacy 25% development mask
+        case "sparse" % 25% PRB occupancy
             occ.prbSet=0:4:(nRB-1);
     end
     if occ.pdsch_enable, occ.mask(occ.prbSet+1,1:nSlot)=true; end

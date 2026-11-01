@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Build interpolation tables for delay-migration correction."""
 import numpy as np
 
 def interpolation_table(taps=48, phases=4096):

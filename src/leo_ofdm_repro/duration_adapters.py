@@ -1,4 +1,4 @@
-"""Committed campaign behavior; source mapping in _config/extraction.json."""
+"""Adapt four-attempt buffers and controllers to one-second recordings."""
 import ast
 
 class ShortData(ast.NodeTransformer):

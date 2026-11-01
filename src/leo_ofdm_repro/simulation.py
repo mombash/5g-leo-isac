@@ -1,4 +1,4 @@
-"""Explicit portable input layout for the selected recording generator.
+"""Manifest-driven propagation and noise synthesis.
 
 Recording synthesis may create large arrays. It is an explicit API, not invoked
 by package installation, examples or receiver checks. Preserve recorded seeds.
@@ -24,7 +24,7 @@ def recording_generator(*,manifest_directory,geometry_root,contract,scratch_root
     data.CACHE=Path(scratch_root).resolve()
     if duration_s==4:return portable_waveforms(data.EpisodeData(split),manifest_directory)
     if duration_s!=1:raise ValueError('Only the evaluated 4 s and 1 s recording forms are supported.')
-    # This is the committed one-second adapter, not a new sampler/shortening rule.
+    # Resize the recording arrays to the one-second cohort duration.
     import inspect
     tree=ast.parse(inspect.getsource(data.EpisodeData))
     node=ShortData().visit(tree.body[0]);namespace=dict(data.__dict__)
@@ -49,10 +49,10 @@ def generation_plan(manifest):
 
 
 def recording_slice(*,manifest_directory,geometry_root,contract,scratch_root,split,row,frames=1):
-    """Bounded smoke only: original synthesis stopped after 1–5 twenty-ms frames.
+    """Synthesize a short diagnostic slice of 1–5 twenty-ms frames.
 
-    This uses the supplied waveform and recorded seeds, never a new scene
-    sampler. It is not a full one-/four-second recording reproduction.
+    Use the supplied waveform and recorded seeds. A slice is too short for
+    a one-second receiver attempt.
     """
     if type(frames) is not int or not 1<=frames<=5:raise ValueError('Slice requires 1–5 twenty-ms frames.')
     data.OUT=DataLayout(manifest_directory,geometry_root,contract)
@@ -80,5 +80,24 @@ def write_example(output,waveform_path):
     (output/'scene.json').write_text(json.dumps(manifest['scenes'][0],indent=2)+'\n')
     (output/'waveform.json').write_text(json.dumps({k:waveform[k] for k in ['cell_id','payload_seed','control_seed','waveform_id']},indent=2)+'\n')
     (output/'contract.json').write_text(json.dumps(example['contract'],indent=2)+'\n')
-    return dict(split=manifest['split'],episode_id=manifest['episodes'][0]['episode_id'],scene_id=manifest['scenes'][0]['scene_id'],
-                source_commits=example['source_commits'],purpose='Recorded input example, not a new evaluation cohort or default sampler.')
+    metadata=dict(split=manifest['split'],episode_id=manifest['episodes'][0]['episode_id'],scene_id=manifest['scenes'][0]['scene_id'],
+                duration_s=manifest.get('duration_s',4),records=len(manifest['episodes']),purpose='One recorded simulation scene and its waveform/noise seeds.',generation_performed=False)
+    (output/'inputs.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    return metadata
+
+
+def prepare_geometry(assets,inputs,output):
+    """Write geometry for the first scene in an exported input directory."""
+    from .geometry import geometry
+    metadata=json.loads((Path(inputs)/'inputs.json').read_text())
+    scene=json.loads((Path(inputs)/'scene.json').read_text())
+    destination=Path(output)/metadata['split']/(metadata['scene_id']+'.npz')
+    if destination.exists() or destination.with_suffix('.json').exists():
+        raise FileExistsError('Existing geometry is preserved.')
+    cfg=json.loads((assets.root/'physical_configuration.json').read_text())
+    arrays,summary=geometry(cfg,scene)
+    import numpy as np
+    destination.parent.mkdir(parents=True,exist_ok=True)
+    np.savez_compressed(destination,**arrays)
+    destination.with_suffix('.json').write_text(json.dumps(summary,indent=2)+'\n')
+    return dict(geometry=str(destination),scene_id=metadata['scene_id'])

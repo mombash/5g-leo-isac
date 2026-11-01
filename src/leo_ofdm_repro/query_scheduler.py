@@ -1,4 +1,4 @@
-"""Committed campaign behavior; source mapping in _config/extraction.json."""
+"""Schedule early alerts, estimate updates and final alert withdrawal."""
 import numpy as np
 import torch
 import time, math, json, threading

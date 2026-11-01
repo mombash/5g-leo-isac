@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Construct deterministic satellite and UAV scenes."""
 import hashlib
 import numpy as np
 COUNTS={'train':(16,2,40),'validation':(8,1,100),'test':(8,1,100)}

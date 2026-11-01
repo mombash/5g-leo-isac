@@ -1,4 +1,4 @@
-# Versions installed in the isolated Python 3.10 validation environment.
+# Tested dependency versions for Linux with Python 3.10.
 filelock==4.1.0
 fsspec==2026.9.0
 Jinja2==3.1.6

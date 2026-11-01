@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Generate deterministic complex Gaussian noise from recorded seeds."""
 import numpy as np
 from .scenes import seed
 

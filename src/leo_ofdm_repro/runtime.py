@@ -1,10 +1,11 @@
-"""Selected receiver execution from portable, hash-verified assets."""
+"""Execute receiver methods with hash-verified models and settings."""
 import copy
 import numpy as np
 import torch
 from .assets import Assets
 from .context import use
 from .parameters import TIMES
+from .method_names import internal_name,public_name
 
 METHODS=('N5','S5','C9','E27','DS','TS1','TS2','KT+LVD')
 CONTROLS=('N5_always27','S5_always27','C9_always27')
@@ -20,15 +21,17 @@ class Runtime:
         torch.backends.cudnn.allow_tf32=False
 
     def settings(self,name):
+        name=internal_name(name)
         group='controls' if name in CONTROLS else 'methods'
-        return copy.deepcopy(self.assets.configuration[group][name])
+        return copy.deepcopy(self.assets.configuration[group][public_name(name)])
 
     def paced(self,name,reference,observation,alignment,*,warmup_inputs=None):
         from .paced import run
-        return run(self,name,reference,observation,alignment,warmup_inputs=warmup_inputs)[0]
+        return run(self,internal_name(name),reference,observation,alignment,warmup_inputs=warmup_inputs)[0]
 
     def backend(self,name):
-        if name not in METHODS+CONTROLS:raise ValueError('Unknown selected method.')
+        name=internal_name(name)
+        if name not in METHODS+CONTROLS:raise ValueError('Unknown receiver method.')
         if name not in self.backends:
             with use(self.assets):
                 if name in QUERY_METHODS:
@@ -41,9 +44,10 @@ class Runtime:
 
     @torch.no_grad()
     def prepared(self,name,correlation,variance):
+        name=internal_name(name)
         if correlation.shape!=(20000,1792) or variance.shape!=(200,1792):raise ValueError('Expected exactly one 1 s prepared attempt.')
         if correlation.dtype!=torch.complex64 or variance.dtype!=torch.float32:raise ValueError('Preserve complex64/float32 inputs.')
-        if correlation.device.type!='cuda' or variance.device.type!='cuda':raise ValueError('Selected inference requires CUDA.')
+        if correlation.device.type!='cuda' or variance.device.type!='cuda':raise ValueError('Receiver inference requires CUDA.')
         settings=self.settings(name)
         with use(self.assets):
             if name in QUERY_METHODS:
@@ -80,8 +84,8 @@ class Runtime:
                 from .kt_lvd import infer
                 value=infer(correlation,variance,nt=4000,batch=32,time_transform='matrix',lag_block=256)
                 events=[dict(observation_s=1.,prediction=value['point'],alert=bool(value['point'][0]>settings['threshold']))]
-            else:raise ValueError('Unknown selected method.')
-        return dict(method=name,events=events,any_alert=any(e['alert'] for e in events),final_alert=events[-1]['alert'],
+            else:raise ValueError('Unknown receiver method.')
+        return dict(method=public_name(name),events=events,any_alert=any(e['alert'] for e in events),final_alert=events[-1]['alert'],
                     timing_valid=False,source_commits=self.assets.configuration['source_commits'],
-                    operating_point=self.assets.configuration['operating_point'],submission=self.assets.configuration['submission'],
+                    operating_point=self.assets.configuration['operating_point'],
                     model_provenance=self.assets.configuration['model_provenance'])

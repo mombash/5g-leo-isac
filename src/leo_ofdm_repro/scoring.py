@@ -1,4 +1,4 @@
-"""Committed campaign behavior; source mapping in _config/extraction.json."""
+"""Score emitted alerts against endpoint delay and Doppler truth."""
 import math
 class InvalidEvidence(ValueError):pass
 Hold=InvalidEvidence

@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Apply sequential detection with fresh samples at a second look."""
 import numpy as np
 import torch
 import time, math, json, threading

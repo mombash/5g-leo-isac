@@ -1,9 +1,9 @@
-"""Committed campaign behavior; source mapping in _config/extraction.json."""
+"""Warm receiver shapes and persistent search streams before timing."""
 
 def warm_backends(modules, specs, backends, reference, observation, alignment):
     import numpy as np
     import torch
-    stream = modules['stripped_streaming_2026_10_26']
+    stream = modules['streaming']
     stream.torch.set_num_threads(4)
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
@@ -19,7 +19,7 @@ def warm_backends(modules, specs, backends, reference, observation, alignment):
         if backend['kind'] == 'kt':
             backend['backend'].stage(c, v, 0, 0, 53)
         elif backend['kind'] == 'ts':
-            detector = modules['literature_two_step_2026_10_27_source_verified']
+            detector = modules['two_step']
             (first, second, refine) = detector.gpu_callbacks(c, v)
             policy = backend['policy']
             result = first(policy.first_s, policy.lower, float('inf'))

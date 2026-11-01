@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Compute the positive-lag product for hybrid integration."""
 import torch
 import triton
 import triton.language as tl

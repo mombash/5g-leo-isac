@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Synthesize received reference, leakage, echo and noise samples."""
 import json
 from pathlib import Path
 import numpy as np
@@ -14,10 +14,10 @@ class EpisodeData:
         self.split = split
         self.manifest = json.loads((OUT / f'{split}_manifest.json').read_text())
         if self.manifest['sealed']:
-            raise RuntimeError('Final test remains sealed')
+            raise RuntimeError('This input manifest is sealed.')
         contract = json.loads((OUT / 'contract.json').read_text())
         if contract['reference_choice'].get('status') != 'approved':
-            raise RuntimeError('Received-reference polarization decision is pending; no campaign data may be generated')
+            raise RuntimeError('The contract must specify an approved reference polarization.')
         self.scenes = {s['scene_id']: s for s in self.manifest['scenes']}
         self.last_scene = None
         self.clean = None

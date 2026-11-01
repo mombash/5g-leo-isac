@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Reuse coarse migration correction across fine Doppler-rate trials."""
 import numpy as np
 import torch
 import time, math, json, threading

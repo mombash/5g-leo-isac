@@ -1,4 +1,4 @@
-"""Portable, verified model/policy assets; no original checkout dependency."""
+"""Verify the model, policy and physical-configuration files before use."""
 import hashlib
 import json
 from pathlib import Path
@@ -22,7 +22,7 @@ class Assets:
         self.configuration=configuration()
         self.manifest=json.loads((self.root/'manifest.json').read_text())
         if {r['path']:r['sha256'] for r in self.manifest['files']}!=self.configuration['asset_sha256']:
-            raise RuntimeError('Assets do not match the selected current source/model configuration.')
+            raise RuntimeError('Assets do not match this package configuration.')
         for r in self.manifest['files']:
             path=self.root/r['path']
             if self.root not in path.resolve().parents:raise ValueError('Asset escapes its root.')

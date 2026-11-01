@@ -1,9 +1,9 @@
 function cfg = n256_config()
-%N256_CONFIG Frozen Release-19 n256 downlink constants for the first campaign.
+%N256_CONFIG n256 downlink configuration used for the waveform library.
 %
 %   cfg = n256_config()
 %
-%   Pure numbers and first-campaign flags. No I/Q. Every other simulator
+%   Numerology and signal-generation settings. Every simulator
 %   block should take this struct so numerology cannot drift.
 %
 %   Independent check: nrCarrierConfig with SubcarrierSpacing=30,

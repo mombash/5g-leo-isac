@@ -1,4 +1,4 @@
-"""Committed campaign behavior; source mapping in _config/extraction.json."""
+"""Round detector bounds upward in float32 arithmetic."""
 import math,struct
 Hold=ValueError
 

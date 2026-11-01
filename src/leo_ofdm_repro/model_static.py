@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Define CUDA-graph-compatible neural and affine selector modules."""
 import numpy as np
 import torch
 import time, math, json, threading

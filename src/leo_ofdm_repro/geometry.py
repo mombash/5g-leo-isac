@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Compute moving bistatic paths, antenna responses and endpoint truth."""
 import json
 import numpy as np
 from scipy.interpolate import CubicSpline

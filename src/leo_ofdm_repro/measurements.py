@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Assemble observed-rate features and short histories for search selection."""
 import numpy as np
 import torch
 import time, math, json, threading

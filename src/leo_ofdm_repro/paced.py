@@ -1,4 +1,4 @@
-"""Original digital sample-paced receiver, with explicit portable raw inputs."""
+"""Run receiver processing as host-resident digital samples become available."""
 import ast
 import concurrent.futures as cf
 import inspect
@@ -25,12 +25,12 @@ def validate_inputs(reference,observation,alignment):
 
 
 def short_class(cls):
-    """Apply the committed one-second capacity/controller-count adapter."""
+    """Resize buffers and controllers for one detection attempt."""
     node=ast.parse(inspect.getsource(cls)).body[0]
     node=ShortScheduler().visit(node)
     scope=dict(inspect.getmodule(cls).__dict__)
     exec(compile(ast.fix_missing_locations(ast.Module(body=[node],type_ignores=[])),
-                 cls.__module__+'#committed-one-second-adapter','exec'),scope)
+                 cls.__module__+'#one-second-adapter','exec'),scope)
     return scope[cls.__name__]
 
 
@@ -62,7 +62,7 @@ def make_record(runtime,name,reference,observation,alignment):
         settings.update(kind='simple',policy=dict(looks=[0],k=53))
         backend=Backend()
     elif name=='E27':backend=runtime.backend(name)
-    else:raise ValueError('Unknown selected method.')
+    else:raise ValueError('Unknown receiver method.')
     record=cls(settings,backend,{},reference,observation,alignment,'pipeline')
     if policy is not None:record.policy=policy
     if name=='KT+LVD':
@@ -92,8 +92,7 @@ def run(runtime,name,reference,observation,alignment,*,warmup_inputs=None):
     validate_inputs(warm_reference,warm_observation,warm_alignment)
     with use(runtime.assets):
         record=make_record(runtime,name,reference,observation,alignment)
-        # Same committed warmup sequence, outside the measured scheduler origin.
-        # Supply its native-query stream warmup even for a single baseline run.
+        # Warm all physical shapes and both persistent search streams before timing.
         from .warmup import warm_backends
         from . import scheduler,two_look
         kind='query' if name.partition('_')[0] in {'N5','S5','C9'} else 'ts' if name in {'TS1','TS2'} else 'kt' if name=='KT+LVD' else 'simple'
@@ -102,8 +101,8 @@ def run(runtime,name,reference,observation,alignment,*,warmup_inputs=None):
         if kind!='query':
             backends['N5']=dict(kind='query',backend=runtime.backend('N5'));specs['N5']=runtime.settings('N5')
         try:
-            warm_backends({'stripped_streaming_2026_10_26':scheduler,
-                'literature_two_step_2026_10_27_source_verified':two_look},specs,backends,warm_reference,warm_observation,warm_alignment)
+            warm_backends({'streaming':scheduler,
+                'two_step':two_look},specs,backends,warm_reference,warm_observation,warm_alignment)
         except BaseException as error:
             record.fail(error);record.pool.shutdown(wait=True)
             raise
@@ -115,14 +114,15 @@ def run(runtime,name,reference,observation,alignment,*,warmup_inputs=None):
             raise
     if name=='KT+LVD':output['max_search_workers']=1
     verify_causality(output,name)
-    output.update(schema=2,method=name,duration_s=duration,mode='pipeline',
-        execution='combined-quality-and-timing',timing_valid=True,causality_verified=True,
+    from .method_names import public_name
+    output.update(schema=2,method=public_name(name),duration_s=duration,mode='pipeline',
+        execution='sample-paced-receiver',timing_valid=True,causality_verified=True,
         timing_boundary='Host-resident digital sample-paced input; initialization, disk/RF/ADC/acquisition/alignment estimation excluded.',
         source_commits=runtime.assets.configuration['source_commits'],
         operating_point=runtime.assets.configuration['operating_point'],
         one_second_adapter=duration==1,
-        warmup_applied=True,warmup_input='First second of explicit warmup inputs' if warmup_inputs is not None else 'First second of receiver input; use explicit disjoint calibration inputs to match the submission protocol',
-        submission=runtime.assets.configuration['submission'],model_provenance=runtime.assets.configuration['model_provenance'],
-        warmup_sequence='Committed campaign warm_backends; selected route plus N5 native-search-stream warmup when required.',
+        warmup_applied=True,warmup_input='First second of explicit warmup inputs' if warmup_inputs is not None else 'First second of receiver input; supply disjoint calibration inputs for the paper warmup protocol',
+        model_provenance=runtime.assets.configuration['model_provenance'],
+        warmup_sequence='Physical stage shapes followed by both persistent search streams; neural search backend also warmed for baseline runs.',
         timing_interpretation='Actual timestamps for this execution; compare performance only under a matched host, warmup, inputs and load.')
     return output,record

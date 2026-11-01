@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Adapt hybrid integration to the receiver stage interface."""
 import numpy as np
 from . import kt_lvd as r
 BATCH=32

@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Measure changes between successive delay–Doppler estimates."""
 import numpy as np
 import torch
 import time, math, json, threading

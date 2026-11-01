@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Estimate motion using keystone alignment and Lv’s distribution."""
 import numpy as np
 import torch
 import time, math, json, threading

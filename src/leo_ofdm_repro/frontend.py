@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Correlate surveillance and reference samples and estimate noise variances."""
 import numpy as np
 import torch
 import time, math, json, threading

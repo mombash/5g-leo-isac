@@ -1,4 +1,4 @@
-"""Standalone-runtime contracts; distinct from older authoring-path tests."""
+"""Alert-scoring and asset-integrity contracts."""
 import json
 from importlib.resources import files
 from pathlib import Path
@@ -44,10 +44,10 @@ class Scoring(unittest.TestCase):
         r=standardized_metrics([t,t,t,n],target_weight=.5)
         self.assertAlmostEqual(r['standardized_operational_mean_s'],1.05)
     def test_actual_float32_threshold_rounding(self):
-        x=configuration()['methods']['TS2']['policy']['upper'];y=float32_up(x)
+        x=configuration()['methods']['two-step-early']['policy']['upper'];y=float32_up(x)
         self.assertGreaterEqual(y,x);self.assertEqual(float32_up(y),y)
         self.assertEqual(y,24.485971450805664)
-    def test_all_saved_current_campaign_examples(self):
+    def test_saved_scoring_examples(self):
         r=scoring_check();self.assertTrue(r['passed']);self.assertEqual(r['saved_attempt_examples'],40)
 
 
@@ -55,8 +55,8 @@ class SelectedAssets(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.root=Path(__file__).resolve().parents[1];cls.real=cls.root/'selected_assets'
-        if not cls.real.exists():raise unittest.SkipTest('Restore the selected_assets companion bundle for these three checks.')
-        cls.tmp=cls.root/'.test-tmp';cls.tmp.mkdir(exist_ok=True)
+        if not cls.real.exists():raise unittest.SkipTest('Run asset checks from a checkout containing selected_assets.')
+        cls.tmp=Path(tempfile.gettempdir())
     def test_genuine_assets(self):
         self.assertEqual(len(Assets(self.real).manifest['files']),7)
     def test_empty_manifest_not_a_valid_selected_bundle(self):

@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Schedule one-worker hybrid integration on sample-paced input."""
 import numpy as np
 import torch
 import time, math, json, threading

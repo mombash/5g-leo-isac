@@ -1,4 +1,4 @@
-"""Selected original numerical operations; provenance and credits in _config/extraction.json and NOTICES.md."""
+"""Decide whether a partial final rate search can reject without an alert."""
 import numpy as np
 import torch
 import time, math, json, threading
@@ -13,7 +13,7 @@ from .native import native_rows
 from .refinement import classical_refine,phase_traces
 from .context import AssetDirectory
 from .assets import configuration
-g=SimpleNamespace(TAU=configuration()["methods"]["N5"]["threshold"])
+g=SimpleNamespace(TAU=configuration()["methods"]["neural"]["threshold"])
 e=SimpleNamespace(focus=SimpleNamespace(c=SimpleNamespace(OUT=AssetDirectory("policies"))))
 
 

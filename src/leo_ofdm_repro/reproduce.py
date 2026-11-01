@@ -1,4 +1,4 @@
-"""Recompute submission endpoints from compact completed records, without inference."""
+"""Aggregate stored receiver outputs into detection and timing statistics."""
 import gzip,json
 from importlib.resources import files
 from pathlib import Path
@@ -31,7 +31,7 @@ def timing_score(attempt):
 
 
 def outcomes(*,bootstrap=True):
-    data=resource('submission_evidence');methods=data['methods'];quality={};false={};timing={}
+    data=resource('recorded_results');methods=data['methods'];quality={};false={};timing={}
     for name in methods:
         attempts=[a for row in data['quality'] for a in row['methods'][name]]
         final=sum(correct(a['events'][-1]) for a in attempts)
@@ -65,14 +65,17 @@ def outcomes(*,bootstrap=True):
             np.testing.assert_allclose(result['first_correct_given_success_ci95_s'],expected['first_correct_given_success_ci95_s'],rtol=0,atol=1e-12)
             np.testing.assert_allclose(result['balanced_operational_ci95_s'],expected['balanced_operational_ci95_s'],rtol=0,atol=1e-12)
         timing[name]=result
-    return dict(passed=True,submission='V18',quality=quality,false_alerts=false,recorded_timing=timing,
+    from .method_names import public_name
+    named=lambda rows:{public_name(k):v for k,v in rows.items()}
+    return dict(passed=True,quality=named(quality),false_alerts=named(false),recorded_timing=named(timing),
                 inference_performed=False,new_timing_measurement=False,bootstrap=dict(replicates=reps if bootstrap else 0,seed=20261101,unit='Whole recording, paired across methods; target/empty strata separate'),
                 limitation='Recomputes saved outcomes and recorded-session statistics. Does not claim repeatable wall-clock timing or session-to-session uncertainty.')
 
 
 def export_inputs(output,cohort,*,waveform_root):
-    data=resource('submission_inputs')
-    if cohort not in data:raise ValueError('Unknown cohort; choose '+', '.join(sorted(data)))
+    data=resource('cohort_inputs')
+    cohort=COHORT_NAMES.get(cohort,cohort)
+    if cohort not in data:raise ValueError('Unknown cohort; choose '+', '.join(COHORT_NAMES))
     output=Path(output)
     if output.exists():raise FileExistsError('Existing input directory is preserved.')
     value=data[cohort];manifest=value['manifest']
@@ -81,5 +84,26 @@ def export_inputs(output,cohort,*,waveform_root):
     (output/'scene.json').write_text(json.dumps(manifest['scenes'][0],indent=2)+'\n')
     (output/'waveform.json').write_text(json.dumps(manifest['waveforms'][0],indent=2)+'\n')
     (output/'contract.json').write_text(json.dumps(dict(reference_choice=dict(choice='aligned_zenith',status='approved',scope='Frozen received-reference choice; unchanged physical inputs.')),indent=2)+'\n')
-    return dict(cohort=cohort,split=manifest['split'],episode_id=manifest['episodes'][0]['episode_id'],scene_id=manifest['scenes'][0]['scene_id'],duration_s=manifest['duration_s'],records=len(manifest['episodes']),source_manifest_sha256=value['source_manifest_sha256'],
-                purpose='Post-submission reproduction copy of completed inputs; original sealed source manifests remain unchanged.',generation_performed=False)
+    metadata=dict(cohort=next((k for k,v in COHORT_NAMES.items() if v==cohort),cohort),split=manifest['split'],episode_id=manifest['episodes'][0]['episode_id'],scene_id=manifest['scenes'][0]['scene_id'],duration_s=manifest['duration_s'],records=len(manifest['episodes']),source_manifest_sha256=value['source_manifest_sha256'],
+                purpose='Scenes and seeds for explicit regeneration of a completed evaluation cohort.',generation_performed=False)
+    (output/'inputs.json').write_text(json.dumps(metadata,indent=2)+'\n')
+    return metadata
+
+
+# Quality parts preserve the four supplied manifest groups, totaling 512 records.
+COHORT_NAMES={
+    'quality-part1':'quality-engineering-pilot',
+    'quality-part2':'quality-previous52-target-continuation',
+    'quality-part3':'quality-previous188-target-extension',
+    'quality-part4':'quality-new1024-target-extension',
+    'no-uav':'fa-fixed3000',
+    'calibration':'warmup-calibration60',
+}
+
+
+def cohorts():
+    """Describe available scene/seed exports without generating samples."""
+    data=resource('cohort_inputs')
+    return {public:dict(records=len(data[key]['manifest']['episodes']),
+                        duration_s=data[key]['manifest']['duration_s'])
+            for public,key in COHORT_NAMES.items()}
