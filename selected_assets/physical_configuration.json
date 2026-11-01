@@ -190,7 +190,6 @@
     "street_width_m": 24
   },
   "schema": "urban-propagation-v2",
-  "status": "Checkpoint B development: not authorized for detection campaign",
   "uav": {
     "clearance_m": 5,
     "cruise_speeds_mps": [

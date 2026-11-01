@@ -26,8 +26,8 @@
     },
     {
       "path": "physical_configuration.json",
-      "bytes": 5302,
-      "sha256": "91f76a9b84c788849d1e190ff847b568756a8604d2c7dd4eef5b7772e7253258"
+      "bytes": 5223,
+      "sha256": "0bb74daf980c35b07261fa06c856aef91688e222208d1af52461dd52cc60be31"
     },
     {
       "path": "policies/final_gate/freeze.json",
