@@ -45,7 +45,7 @@ def make_record(runtime,name,reference,observation,alignment):
     settings=runtime.settings(name);cls=kt_scheduler.StreamingRecord if name=='KT+LVD' else scheduler.StreamingRecord
     if duration==1:cls=short_class(cls)
     policy=None
-    if name in {'N5','S5','C9'}:
+    if name.partition('_')[0] in {'N5','S5','C9'}:
         cls=type('SelectedQueryRecord',(cls,),{'controller':QueryRecord.controller})
         backend=runtime.backend(name);backend.force_full={}
     elif name in {'TS1','TS2'}:
@@ -86,22 +86,24 @@ def verify_causality(output,name):
 
 
 @torch.no_grad()
-def run(runtime,name,reference,observation,alignment):
+def run(runtime,name,reference,observation,alignment,*,warmup_inputs=None):
     duration=validate_inputs(reference,observation,alignment)
+    warm_reference,warm_observation,warm_alignment=(reference,observation,alignment) if warmup_inputs is None else warmup_inputs
+    validate_inputs(warm_reference,warm_observation,warm_alignment)
     with use(runtime.assets):
         record=make_record(runtime,name,reference,observation,alignment)
         # Same committed warmup sequence, outside the measured scheduler origin.
         # Supply its native-query stream warmup even for a single baseline run.
         from .warmup import warm_backends
         from . import scheduler,two_look
-        kind='query' if name in {'N5','S5','C9'} else 'ts' if name in {'TS1','TS2'} else 'kt' if name=='KT+LVD' else 'simple'
+        kind='query' if name.partition('_')[0] in {'N5','S5','C9'} else 'ts' if name in {'TS1','TS2'} else 'kt' if name=='KT+LVD' else 'simple'
         backends={name:dict(kind=kind,backend=record.b)};specs={name:runtime.settings(name)}
         if kind=='ts':backends[name]['policy']=record.policy
         if kind!='query':
             backends['N5']=dict(kind='query',backend=runtime.backend('N5'));specs['N5']=runtime.settings('N5')
         try:
             warm_backends({'stripped_streaming_2026_10_26':scheduler,
-                'literature_two_step_2026_10_27_source_verified':two_look},specs,backends,reference,observation,alignment)
+                'literature_two_step_2026_10_27_source_verified':two_look},specs,backends,warm_reference,warm_observation,warm_alignment)
         except BaseException as error:
             record.fail(error);record.pool.shutdown(wait=True)
             raise
@@ -119,7 +121,8 @@ def run(runtime,name,reference,observation,alignment):
         source_commits=runtime.assets.configuration['source_commits'],
         operating_point=runtime.assets.configuration['operating_point'],
         one_second_adapter=duration==1,
-        warmup_applied=True,warmup_input='First second of the supplied raw recording; no truth or parameter adaptation.',
+        warmup_applied=True,warmup_input='First second of explicit warmup inputs' if warmup_inputs is not None else 'First second of receiver input; use explicit disjoint calibration inputs to match the submission protocol',
+        submission=runtime.assets.configuration['submission'],model_provenance=runtime.assets.configuration['model_provenance'],
         warmup_sequence='Committed campaign warm_backends; selected route plus N5 native-search-stream warmup when required.',
         timing_interpretation='Actual timestamps for this execution; compare performance only under a matched host, warmup, inputs and load.')
     return output,record

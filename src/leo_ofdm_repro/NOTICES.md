@@ -1,6 +1,6 @@
 # Attribution and rights
 
-This internal research implementation derives from current source commits:
+This research implementation derives from current source commits:
 
 - Simulator, physical processing and saved query-model definitions: `194f43575a482fcd316a78e5805a6786462bfcb2`.
 - Evaluated controller/scoring/configuration adapters: `495f4f757464f8edda0a1d4fe457e74c0e5f232d`.

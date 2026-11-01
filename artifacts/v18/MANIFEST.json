@@ -1,0 +1,181 @@
+{
+  "schema": 1,
+  "submission": {
+    "final_timing_archive_sha256": "5c7546cf313c7e7067d65dbc5db41bb0ebedf06f128e8e88dd52c04a17691c13",
+    "id": "V18",
+    "model_freeze_sha256": "74a6455f8553e7f942662f65176af89d60b748484a39a74cc3850f42f0021992",
+    "pdf_sha256": "d8b592ddceb9b868f0ad684241c7150997129525234ff1e6ea0355ceaf2768d5",
+    "source_sha256": "8456942d09b9cc33c253b42d9dbb22db8c09c008c593d4a6e900a78781d6a78b",
+    "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
+  },
+  "package_version": "0.2.0",
+  "base_repository_commit": "8c6c36af422c2214bc242d972f6a012c5dc49a7a",
+  "base_source_package_commit": "0bd62cd6dfb2a53dbb2d30ddab711282cf1511f5",
+  "artifacts": {
+    "INSTALL.md": {
+      "sha256": "6e2c61e4fa2d2614873250cff24dca75eadf09561990591d8ed4842926cce46a",
+      "bytes": 5977
+    },
+    "NOTICES.md": {
+      "sha256": "4d758ebec13033c91d4078f95a09e25aabc46f04db67019cd3b5ddf2b0a0e355",
+      "bytes": 3351
+    },
+    "RUNNING.md": {
+      "sha256": "b5bb2db32b03351fe9574984b82161021437372352cfca5c79ca47bf6eb1c7fe",
+      "bytes": 13987
+    },
+    "leo_ofdm_reproducible_package-0.2.0-py3-none-any.whl": {
+      "sha256": "4dbdf5ea7925d39eaf78d9b2f6c035de138bbd8550b08b31715f6596f8855348",
+      "bytes": 1556519
+    },
+    "leo_ofdm_submission_v18_assets-0.2.0.zip": {
+      "sha256": "cd0c5baebc5b40ea362fcd7ee23603e13312d2c5aac9e1b0b592b3d1b8a6f1a6",
+      "bytes": 2115848
+    },
+    "requirements-cpu.lock": {
+      "sha256": "29f20967e2c917adc64f01394db6cb36e20b33c7d5fb16acbdf1708271ad21df",
+      "bytes": 100
+    },
+    "requirements-gpu.lock": {
+      "sha256": "34371842344879e73a64df8e661ecd1fb80a2833b5538f596543cbce4f8f72d2",
+      "bytes": 663
+    },
+    "VALIDATION.md": {
+      "sha256": "65c898d40fc1167bbf11d2835536b47df479d24ebc2d54451be985d8f32d83e9",
+      "bytes": 4704
+    }
+  },
+  "asset_files": [
+    {
+      "path": "models/N5_step500_weights.pt",
+      "sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
+      "bytes": 2262930
+    },
+    {
+      "path": "models/S5_linear_summary_alpha0.1.npz",
+      "sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "bytes": 27432
+    },
+    {
+      "path": "models/normalization.npz",
+      "sha256": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
+      "bytes": 1843
+    },
+    {
+      "path": "models/model_specs.json",
+      "sha256": "ef303706e1183ae21582c08ddea969359d599bdef8b1791b5ccba9ddb8824ff8",
+      "bytes": 249
+    },
+    {
+      "path": "policies/phase_refinement/rate_prior.npy",
+      "sha256": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49",
+      "bytes": 884
+    },
+    {
+      "path": "policies/final_gate/freeze.json",
+      "sha256": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f",
+      "bytes": 137
+    },
+    {
+      "path": "physical_configuration.json",
+      "sha256": "921a319063657de01040ca2bcd7e4324f484fc7530dce7519c7ba1a4cbe02038",
+      "bytes": 5365
+    }
+  ],
+  "package_members_sha256": {
+    "leo_ofdm_repro/NOTICES.md": "4d758ebec13033c91d4078f95a09e25aabc46f04db67019cd3b5ddf2b0a0e355",
+    "leo_ofdm_repro/__init__.py": "7ea103606b4b3475d385a668f49899c04f61d7871f43fd1908d498d7ff486152",
+    "leo_ofdm_repro/__main__.py": "6d8b7d7846a845059d7a3107143f11131f63c5511d669b44085b15ec5e3d2279",
+    "leo_ofdm_repro/assets.py": "4f805b7933d9ccb2ba7c705fb5a810d3543c6273975d0923a29b3aad2cb0614d",
+    "leo_ofdm_repro/base.py": "4c71d6f88cc947b3959ba9d2e0040303059f1cab90f1032f52c27963f41a98f9",
+    "leo_ofdm_repro/base_backend.py": "73446a37b6e7f6e7a06fb066b2fde8260f1e0002577936ff3e306efe3fadec42",
+    "leo_ofdm_repro/cancellation.py": "e3a85bd5e5b48d89dad1b6725e6d8fdfbba86e222e54886b8373c178c5ff4c8e",
+    "leo_ofdm_repro/cli.py": "8ce85e19f4427e4935a891ab656aac260c5db6ad896c07d78b4c94f69f8be5ff",
+    "leo_ofdm_repro/coherent.py": "b2dad4c0915f85ef31e23a0418eaad5a4fb2c7e9ee3c8d014e727d245fa155ac",
+    "leo_ofdm_repro/context.py": "d4e525a3577d59560701aeb214743fc8227efa356045f7aa17b16e8a949b7438",
+    "leo_ofdm_repro/decimation.py": "c79d5d4c94bf267a9d07562041f2220cbb064fa089674bbb84f02ecc3ac9e75b",
+    "leo_ofdm_repro/ds_backend.py": "e9f01b1ad3f05a6b2a5b5e99a9cfc40428aaf5ecec22106422ee8e2c9c38c117",
+    "leo_ofdm_repro/dual_scale.py": "cb0b96224fd2c43225fd9344320a30dfd75b20f1c15dc8fbd9857b9bf22969fe",
+    "leo_ofdm_repro/duration_adapters.py": "c4e999302d63201d28fc1f1e47aab54f67ca6fca8dcce913ab3bc78351a0a1c8",
+    "leo_ofdm_repro/evidence.py": "451df4fbc8174e68a707a76400748857bf09a5c9195c699cc10baf5bf61c57ea",
+    "leo_ofdm_repro/examples.py": "11d69d58b983c1e024a527f99775ca52607112816feb6752f69832533da2daa9",
+    "leo_ofdm_repro/final_backend.py": "96076406793355ffa99d52b00ec809e959396b3fc114d603fe9d30e8152e0aaa",
+    "leo_ofdm_repro/frontend.py": "a02849e1281667dfb2308afaf7c845f0aa75e30f03769b3ff70c23aa628421b3",
+    "leo_ofdm_repro/gate.py": "ff0e12288a3d22cfd9131fc8c0a31c3299f1fce5d86f06c2ec6c26dcf4512d0f",
+    "leo_ofdm_repro/geometry.py": "b6e748f9b2d070731a6bb609fb79bf54fb11c5a6139d7e6b160a6090c036a235",
+    "leo_ofdm_repro/innovation.py": "cb625f1a03d2cc5e3b4236d6fd50b689900243a77af9d8205d6c81ceb5af40ee",
+    "leo_ofdm_repro/interpolation.py": "ce74e8127a72895868a758f8a2efcfc53be6efd9129bfc995381d59c2b2503b7",
+    "leo_ofdm_repro/kt_backend.py": "64c4ddb164a32e9ea7907d8f92d65658d67c97bae9b00242629cc89c6879e4f9",
+    "leo_ofdm_repro/kt_lvd.py": "eec4e9f6fdba639336561bfce842dde7d442436adeb5a7d4a38ca3b966c2eb67",
+    "leo_ofdm_repro/kt_product.py": "be3cb5d7ec39bdc87562a4229a003dd1b0debf99b774954ba6a714458c69a420",
+    "leo_ofdm_repro/kt_scheduler.py": "69f12149db687c4ff8f9743c4affdb9326e248f9a885f50f5b12c66e1291ce10",
+    "leo_ofdm_repro/measurements.py": "0beeed786dabfe5daae2529f9a41b7c1727986f1db15c1bba2231f7e03cdc3e9",
+    "leo_ofdm_repro/model_core.py": "740584b1ccbb613dd7b6a3036ffc7fdde65a172ce4188a8ff37470df35868663",
+    "leo_ofdm_repro/model_static.py": "a4b09dbaa56f259538fae50e84743356915f695c6529795b7681b91df917e3ed",
+    "leo_ofdm_repro/native.py": "41c04c75d5ba16eb0600746542a3bc78c3511e248a5f520dac63b7dd66d9a426",
+    "leo_ofdm_repro/noise.py": "a163f44bfd41043f5ac66af9a6c26a062d6a42d3138f46cd4bf641ee0cc05555",
+    "leo_ofdm_repro/numerics.py": "6292221e2864b10be69aef0edb824c248aedd8f87450a3b49c54d2ac51dbb261",
+    "leo_ofdm_repro/paced.py": "7fff4ee5f81ae0534b1c21f9ee661cea69706881470320a952a6ce210eea4068",
+    "leo_ofdm_repro/parameters.py": "2491970e9bcd2f134a44eb6b57c82ba7472c8b37a0047b7e2ea85ad0509ddb9e",
+    "leo_ofdm_repro/phase_features.py": "43497983f6d0f359dcfb8951d29e73aacda34d9eb5ef266a60d387febba15a51",
+    "leo_ofdm_repro/physical_features.py": "dd0fc8fa8d0ec2b5be5a48fb016a1791ee64519fa5e7c193d0926903935bfa71",
+    "leo_ofdm_repro/physics.py": "76f079d5e9b1ac58f40f9c89ddf53a32ec8a29daa362667281b4616b703f948d",
+    "leo_ofdm_repro/query_reader.py": "ff4e8e793307aafc38aacfb035584c7661316446843aab7a513ae5adea489d3a",
+    "leo_ofdm_repro/query_scheduler.py": "40720b746e0bddc3cd50819d60a597f35b5720441e6c15e829ba5b969f8d91ee",
+    "leo_ofdm_repro/query_stage.py": "b75aa680c2322f955086f77d56192ff72d3ca49109f4394e01a25adf5d3230b4",
+    "leo_ofdm_repro/reader_core.py": "e81af964498be0f0ef97374a2bddc924cd695cefa8beef135d6e014a9c1837c9",
+    "leo_ofdm_repro/refinement.py": "d9d2037451a56f745210f7cd3125763fbeacbe015947c4e7cb13ea9e7acaae20",
+    "leo_ofdm_repro/reproduce.py": "572fa5094785d4798c6cf4325661f11968d55001cd89bc05d934a32ef1d39332",
+    "leo_ofdm_repro/runtime.py": "a247cca7a1cf249429e87cb12744623d1c2a3beef7fd7833930773668ac58f13",
+    "leo_ofdm_repro/scenes.py": "7b055203ef870d11106706164d0536f93e52d9e941553ece02b04f0c2ca3bc87",
+    "leo_ofdm_repro/scheduler.py": "cce36049ca0c16fc1fc12411ffaa675dfcd7ee7b166770f7532a8104e535b13d",
+    "leo_ofdm_repro/scoring.py": "bb05195e97db4bb6ca5763227f4829bdfc0e71d5e531dec0b7b0d956a9a33c6e",
+    "leo_ofdm_repro/set_features.py": "113a80829dcf5b3ce72e37b1e6ca3f459f613f6ef940a29e977fa800b53f9695",
+    "leo_ofdm_repro/simulation.py": "2bdf192d4df5955596521ec674cc5f3e1e3991b141bb5f1c3104313846476325",
+    "leo_ofdm_repro/simulation_data.py": "0641b26eaae82ac1f04fc560b3d98518bb92fcff81d38cfd3af216e3ef6f6262",
+    "leo_ofdm_repro/ts_backend.py": "b49c29bd3e39bdeace0a7c439f5342053a9a778c8c190bb55ad0335d917a94b2",
+    "leo_ofdm_repro/ts_scheduler.py": "6ad8502f5e0a98fdf945d121ba11337133be737b3be522cbad5515cd00aab8f8",
+    "leo_ofdm_repro/two_look.py": "9a13573a7abd7fc402a601bc6753e9153d31cf85d30c73b5742883deba31cabb",
+    "leo_ofdm_repro/verifier.py": "9eb76dc5ae1a25c40dc4584a157addfcbec215234973d0e54e409d20a80b2c1c",
+    "leo_ofdm_repro/warmup.py": "8fcf9e5cdee1d8dd515e171c9e164823d3990421f7fd7161499b2d3acc2992a6",
+    "leo_ofdm_repro/warp.py": "679e453d923e03e36b391e14fef9211f8917cbcb20c54bacee3160abd8a6d2c4",
+    "leo_ofdm_repro/warp_table.py": "1b959c57bfda0f890d086aeccdcde083de0b5af877f56028e99410691a4825de",
+    "leo_ofdm_repro/_config/extraction.json": "c6613a53e79b6c5c4a1a2c48f40e9180392a72665f9e2e52caf817923556f6aa",
+    "leo_ofdm_repro/_config/methods.json": "9838b838f90611b3b5458953c0ecf01a5322e290f623ea3a39a072ed7f62ff52",
+    "leo_ofdm_repro/_config/scoring_examples.json": "d9c81029c9ce22d1ddfaedbfcf53470e982ec63c6d1e293848089edb24729bf3",
+    "leo_ofdm_repro/_config/simulation_example.json": "ae11a2f90bc26f8a020f0c518097ce4062a85cf758f9de08aefefb25d9336db4",
+    "leo_ofdm_repro/_config/submission_evidence.json.gz": "e9007f7e7ab0edaf1bfc45fffae1879bb2731475302c72c7f694a09dee0ca8a6",
+    "leo_ofdm_repro/_config/submission_inputs.json.gz": "f7f10a6cb1f0d023ee870d21171f2a6ab8098704c46be210626f674f06b47b8d",
+    "leo_ofdm_repro/matlab/generate_waveform_smoke.m": "2548ab21a341684acccf275ce10110441910382b54af03ce929fd3289560d0a9",
+    "leo_ofdm_repro/matlab/prepare_manuscript_waveforms.m": "7846ae395cff5cbbbe7cb51b3749055ebbb147557d6d614aec07c64160555316",
+    "leo_ofdm_repro/matlab/simulator/matlab/n256_config.m": "bf2068e3de1acd08c9cea58216fb0a6ae232e6407e4da1c1cf42f50b79119697",
+    "leo_ofdm_repro/matlab/simulator/matlab/n256_dl_carrier.m": "a7783584c7958182f581790c95827c786608d2ebe80c3562418093b4c0af2309",
+    "leo_ofdm_repro/matlab/simulator/matlab/occupancy_mask.m": "e594bf2600dfa543d74d081aaf29338e9bf68f417f10e38e2901d773533c4390",
+    "leo_ofdm_repro/native/kernels.cpp": "4c2692373dddce4dbd764684afbfb710dd29d9b33f0f2cb00e7c016f17098992"
+  },
+  "model_provenance": {
+    "N5": {
+      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
+      "asset": "models/N5_step500_weights.pt",
+      "exported_asset_sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
+      "export": "model state_dict CPU tensors only; no optimizer/RNG/training metadata",
+      "tensors_identical": true,
+      "tensors": 42,
+      "original_checkpoint_top_level_keys": [
+        "cuda_rng",
+        "model",
+        "numpy_rng",
+        "optimizer",
+        "step",
+        "torch_rng"
+      ]
+    },
+    "S5": {
+      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "asset": "models/S5_linear_summary_alpha0.1.npz",
+      "exported_asset_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "byte_identical": true
+    }
+  },
+  "scope": "V18 code/configuration/weights and compact saved-outcome reproduction; no repeated physical campaign or repeatable-wall-clock claim."
+}

@@ -1,36 +1,38 @@
 # 5G LEO ISAC
 
-Private source snapshot of the latest existing packaged simulator, receiver, selected models and eight baseline/configuration routes. This is package **r2**, committed on 2026-10-28T17:09:03+00:00, source package commit `0bd62cd6dfb2a53dbb2d30ddab711282cf1511f5`. No scientific code was rebuilt and no experiments were rerun for this repository upload.
+Standalone research implementation for the **V18 submission**, with the final selected neural/statistical models, frozen physical receiver and eight evaluated configurations. The default source installation and version **0.2.0** delivery use V18. The older [r2 delivery](artifacts/r2) remains historical.
 
-**Model-version warning:** this preserves the packaged r2 assets from 28 October 2026. They predate the final paper's later selector training. Both N5 and S5 checkpoint hashes differ from the final selected models. This repository does **not** claim exact reproduction of the final V18 paper configuration. Updating the package/models is a separate future change; no final checkpoint has been silently substituted. Exact identities are in [snapshot provenance](provenance/SNAPSHOT.json).
+The adopted manuscript identities are recorded in [submission provenance](provenance/SNAPSHOT.json); manuscript files are not included or modified. No training, recalibration or campaign rerun was performed for this update.
 
-| Model | Packaged checkpoint SHA-256 | Final selected checkpoint SHA-256 |
-|---|---|---|
-| N5 | `1a2432ed38cb4dfd7ec3b92b54baa50cc038f2cad0965acb5b43169c5c098b03` | `576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3` |
-| S5 | `947b946d746d5be1502c9f5d36119b0ce3e698bb2f295cfc4a2f429bbcb4a574` | `49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d` |
+## Install and verify
 
-The final N5 checkpoint is `N5_step500.pt`; the final model specification maps the historical `query_rich_step1000` identifier to that file. The historical identifier alone is not a checkpoint identity.
-
-## Install
-
-From the repository root, using Python 3.10:
+From the repository root (tested Linux/Python 3.10):
 
 ```sh
 python3 -m venv .venv
 .venv/bin/python -m pip install -r requirements-cpu.lock
 .venv/bin/python -m pip install --no-deps .
 .venv/bin/python -m leo_ofdm_repro methods
-.venv/bin/python -m leo_ofdm_repro example
 .venv/bin/python -m leo_ofdm_repro verify-assets --assets ./selected_assets
+.venv/bin/python -m leo_ofdm_repro reproduce
 ```
 
-For the GPU receiver, install `requirements-gpu.lock` instead of the CPU lock, adding `--extra-index-url https://download.pytorch.org/whl/cu124`. The pinned stack uses PyTorch 2.6.0+cu124 and Triton 3.2.0. Dependency/build downloads use their normal package sources; dependencies are not vendored.
+`reproduce` is CPU-only. It recomputes final/ever-correct and wrong-first outcomes on the frozen 512-flight/2048-attempt quality cohort, any-alert false alarms and exact one-sided bounds on the separate fixed 3000-record no-UAV cohort, and the recorded Nov 1 timing statistics. It includes the original paired whole-record bootstrap. It performs no inference, generation or new timing measurement. Wall-clock times are recorded results, not a promise of repeatable timing on another host/session.
 
-The unmodified prebuilt r2 wheel, asset ZIP, original instructions and exact hash manifest are in [artifacts/r2](artifacts/r2). The source and extracted seven-file asset bundle match that delivery. Run `python3 tools/verify_snapshot.py` for static snapshot/artifact verification; it performs no inference or generation.
+For GPU execution, install `requirements-gpu.lock` instead of the CPU lock, adding `--extra-index-url https://download.pytorch.org/whl/cu124`. The pinned stack uses PyTorch 2.6.0+cu124 and Triton 3.2.0. External dependencies are not vendored. A prebuilt wheel and companion asset ZIP are in [artifacts/v18](artifacts/v18).
 
-## Receiver and simulation
+## Final model identity
 
-The selected routes are N5, S5, C9, E27, DS, TS1, TS2 and the selected OLD KT+LVD adaptation. No baseline, frozen threshold, scoring rule, model or numerical operation is changed in this snapshot. [Running instructions](docs/RUNNING.md) cover recorded input export, geometry, raw generation, MATLAB waveform requirements, prepared execution, sample-paced execution and offline scoring.
+| Selector | Original selected checkpoint SHA-256 | Shipped asset |
+|---|---|---|
+| N5 | `576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3` | `N5_step500_weights.pt`; model tensors only |
+| S5 | `49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d` | `S5_linear_summary_alpha0.1.npz`; byte-identical |
+
+The neural export removes optimizer/RNG metadata; its separate hash and exact tensor-identity proof are in [configuration provenance](provenance/V18_CONFIGURATION.json). The historical neural identifier `query_rich_step1000` maps to the selected step-500 weights; names are not used as proof of model identity. Normalization, rate prior, thresholds, precision, feature/preprocessing code, refinement, gate rules, scoring and selected literature adaptations match the evaluated source.
+
+## Run the receiver
+
+The selected methods are N5, S5, C9, E27, DS, TS1, TS2 and OLD KT+LVD. The existing N5/S5/C9 always27 component controls are also exposed explicitly.
 
 ```sh
 .venv/bin/python -m leo_ofdm_repro paced --assets ./selected_assets --method N5 \
@@ -38,14 +40,16 @@ The selected routes are N5, S5, C9, E27, DS, TS1, TS2 and the selected OLD KT+LV
   --alignment ./raw/alignment.npy --output ./checks/N5-paced.json
 ```
 
-`paced` accepts one- or four-second raw complex64 recordings, the 10 ms reference guard and supplied 20 ms alignment rows. Its timing boundary is host-resident digital samples after initialization/warmup, excluding disk/RF/ADC/acquisition/alignment estimation. `prepared` consumes one second of correlations/variances and reports `timing_valid=false`. Neither interface silently generates datasets.
+Inputs are one or four seconds of complex64 raw samples at 30.72 MHz, a preceding 10 ms reference guard and supplied 20 ms alignment rows. The original scheduler performs cancellation/correlation/preparation, physical searches, selection/refinement and emitted outputs. Early alerts may be updated or withdrawn at the final check. An earlier alert forces the full 27-rate final search; otherwise the frozen 15-rate rejection gate may stop with no alert.
 
-## Recorded validation and limits
+The timing boundary starts with host-resident digital samples after initialization/warmup; disk/RF/ADC/acquisition/alignment estimation are excluded. To follow the submission warmup protocol, pass all three `--warmup-reference`, `--warmup-observation`, `--warmup-alignment` arrays from a disjoint calibration recording. Without them, the command explicitly reports warmup on its receiver input. `prepared` is a separate one-second correlation/variance interface with `timing_valid=false`.
 
-The r2 [checkpoint](validation/CHECKPOINT.md) and receipts record 20 standalone tests, 40 saved scoring examples, geometry/native checks, short NR/raw generation, current-source agreement for all eight paced routes on one synthetic input, and installed execution in fresh CPU/GPU dependency environments with source reads denied. These are the existing October 2026 checks, not new experiments performed for this upload.
+[Running instructions](docs/RUNNING.md) cover these commands, frozen input export, waveform/geometry/raw generation, units and scoring. Compact scene/seed manifests are included; bulky generated waveforms, raw recordings and caches are excluded. MATLAB/5G Toolbox are external requirements for NR generation.
 
-Full 402-frame waveform/hash recovery, full recording generation, four-attempt concurrency execution and matched paper-performance reproduction remain unexecuted in that bounded package validation. The existing sliced generation/pacing checks do not establish detection probabilities or matched final-paper latency.
+## Scope of evidence
 
-The repository contains only the reviewed standalone snapshot, selected frozen assets, tests, notices, instructions, provenance and the existing small delivery artifacts. It excludes the original development Git history, authoring/vendor bridge, credentials, virtual environments, caches, generated raw/waveform/result datasets, private discussion and manuscript source. Original package history, source repositories, results and delivery artifacts remain untouched locally.
+Quality uses exactly the sealed original 256 plus new 256 independent four-second UAV recordings (2048 dependent attempts), excluding unsealed extras. FA uses 3000 fresh independent one-second no-UAV recordings; any emitted alert counts once, including withdrawals. The earlier 300 short and 16 long empties are not pooled into that endpoint. Timing uses the final-receiver Nov 1 panel of 16 UAV plus eight no-UAV four-second records, with separate existing component controls and whole-record paired uncertainty.
 
-This repository is private. No public release or open-source license choice is implied. See [rights](RIGHTS.md) and [scientific attribution/adaptations](THIRD_PARTY_NOTICES.md).
+The bounded update checks compare final-model logits, physical predictions, scores, candidate choices, gate branches and alerts against the frozen implementation, with source/install/artifact checks recorded in [validation](validation/CHECKPOINT.md). Saved-outcome recomputation is distinct from rerunning the physical campaign. Full 402-frame waveform recovery and full-cohort raw regeneration were not repeated; new smoke checks do not establish full-cohort detection rates or matched hardware timing.
+
+The original package/history, campaigns, results and manuscript remain unchanged. This repository preserves its initial r2 commit and adds a normal submission-update commit. [Snapshot verification](tools/verify_snapshot.py), [provenance](provenance/V18_CONFIGURATION.json) and [scientific attribution/adaptations](THIRD_PARTY_NOTICES.md) are included. No new open-source license was selected; see [rights](RIGHTS.md).

@@ -26,7 +26,7 @@ class Reader:
         if self.spec['family'] == 'neural':
             self.model = CapacityNet(self.spec['rich']).cuda().eval()
             self.model.head[-1] = nn.Linear(128, 28).cuda()
-            self.model.load_state_dict(torch.load(path, weights_only=False)['model'])
+            self.model.load_state_dict(torch.load(path, weights_only=True)['model'])
         elif self.spec['family'] == 'linear':
             self.z = dict(np.load(path))
         else:

@@ -10,16 +10,20 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     sub.add_parser('methods',help='Print selected retained parameters and source commit IDs.')
     sub.add_parser('example',help='Check tiny saved scoring examples without original sources or a GPU.')
+    reproduce=sub.add_parser('reproduce',help='Recompute V18 quality, FA and recorded timing endpoints without inference.');reproduce.add_argument('--no-bootstrap',action='store_true')
+    inputs=sub.add_parser('submission-inputs',help='Export a frozen completed-cohort reproduction manifest without generating data.')
+    inputs.add_argument('--cohort',required=True);inputs.add_argument('--output',type=Path,required=True);inputs.add_argument('--waveform-root',type=Path,required=True)
     verify=sub.add_parser('verify-assets');verify.add_argument('--assets',type=Path,required=True)
     prepare=sub.add_parser('prepared',help='Run one prepared 1 s attempt; output is not a latency measurement.')
-    prepare.add_argument('--assets',type=Path,required=True);prepare.add_argument('--method',choices=list(configuration()['methods']),required=True)
+    prepare.add_argument('--assets',type=Path,required=True);prepare.add_argument('--method',choices=list(configuration()['methods'])+list(configuration().get('controls',{})),required=True)
     prepare.add_argument('--correlation',type=Path,required=True);prepare.add_argument('--variance',type=Path,required=True)
     prepare.add_argument('--output',type=Path,required=True)
     geometry=sub.add_parser('geometry');geometry.add_argument('--assets',type=Path,required=True)
     geometry.add_argument('--scene',type=Path,required=True);geometry.add_argument('--output',type=Path,required=True)
     paced=sub.add_parser('paced',help='Run actual raw frontend and sample-paced selected receiver, with measured availability times.')
-    paced.add_argument('--assets',type=Path,required=True);paced.add_argument('--method',choices=list(configuration()['methods']),required=True)
+    paced.add_argument('--assets',type=Path,required=True);paced.add_argument('--method',choices=list(configuration()['methods'])+list(configuration().get('controls',{})),required=True)
     for key in ['reference','observation','alignment','output']:paced.add_argument('--'+key,type=Path,required=True)
+    for key in ['reference','observation','alignment']:paced.add_argument('--warmup-'+key,type=Path)
     sample=sub.add_parser('simulation-example',help='Export a recorded scene/seed example and portable generation inputs.')
     sample.add_argument('--output',type=Path,required=True);sample.add_argument('--waveform',type=Path,required=True)
     plan=sub.add_parser('generation-plan');plan.add_argument('--manifest',type=Path,required=True)
@@ -40,6 +44,12 @@ def main():
     if args.command=='generation-plan':
         from .simulation import generation_plan
         print(json.dumps(generation_plan(args.manifest)));return
+    if args.command=='reproduce':
+        from .reproduce import outcomes
+        print(json.dumps(outcomes(bootstrap=not args.no_bootstrap),indent=2));return
+    if args.command=='submission-inputs':
+        from .reproduce import export_inputs
+        print(json.dumps(export_inputs(args.output,args.cohort,waveform_root=args.waveform_root)));return
     assets=Assets(args.assets)
     if args.command=='verify-assets':
         print(json.dumps(dict(passed=True,files=len(assets.manifest['files']),source_commits=assets.configuration['source_commits'])));return
@@ -80,7 +90,10 @@ def main():
         inputs={k:np.load(getattr(args,k),allow_pickle=False) for k in ['reference','observation','alignment']}
         validate_inputs(**inputs)
         hashes={k:hashlib.sha256(memoryview(a)).hexdigest() for k,a in inputs.items()}
-        result=Runtime(args.assets).paced(args.method,**inputs)
+        warm_paths=[getattr(args,'warmup_'+k) for k in ['reference','observation','alignment']]
+        if any(p is not None for p in warm_paths) and not all(p is not None for p in warm_paths):raise ValueError('Supply all three warmup arrays together.')
+        warmup=None if not all(p is not None for p in warm_paths) else tuple(np.load(p,allow_pickle=False) for p in warm_paths)
+        result=Runtime(args.assets).paced(args.method,**inputs,warmup_inputs=warmup)
         result['input_array_sha256']=hashes
         args.output.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
     else:

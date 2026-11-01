@@ -1,0 +1,282 @@
+{
+  "passed": true,
+  "submission": "V18",
+  "quality": {
+    "N5": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1903,
+      "final_correct_pct": 92.919921875,
+      "ever_correct": 1908,
+      "wrong_first_alerts": 51
+    },
+    "S5": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1903,
+      "final_correct_pct": 92.919921875,
+      "ever_correct": 1908,
+      "wrong_first_alerts": 56
+    },
+    "C9": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1903,
+      "final_correct_pct": 92.919921875,
+      "ever_correct": 1908,
+      "wrong_first_alerts": 51
+    },
+    "E27": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1903,
+      "final_correct_pct": 92.919921875,
+      "ever_correct": 1903,
+      "wrong_first_alerts": 2
+    },
+    "DS": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1906,
+      "final_correct_pct": 93.06640625,
+      "ever_correct": 1906,
+      "wrong_first_alerts": 3
+    },
+    "TS1": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1864,
+      "final_correct_pct": 91.015625,
+      "ever_correct": 1864,
+      "wrong_first_alerts": 3
+    },
+    "TS2": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1742,
+      "final_correct_pct": 85.05859375,
+      "ever_correct": 1742,
+      "wrong_first_alerts": 8
+    },
+    "KT+LVD": {
+      "records": 512,
+      "attempts": 2048,
+      "final_correct": 1872,
+      "final_correct_pct": 91.40625,
+      "ever_correct": 1872,
+      "wrong_first_alerts": 3
+    }
+  },
+  "false_alerts": {
+    "N5": {
+      "independent_recordings": 3000,
+      "any_alert_count": 3,
+      "final_alert_count": 3,
+      "any_alert_probability": 0.001,
+      "any_alert_one_sided_95_upper": 0.0025825051382936544
+    },
+    "S5": {
+      "independent_recordings": 3000,
+      "any_alert_count": 4,
+      "final_alert_count": 3,
+      "any_alert_probability": 0.0013333333333333333,
+      "any_alert_one_sided_95_upper": 0.003048553035598473
+    },
+    "C9": {
+      "independent_recordings": 3000,
+      "any_alert_count": 4,
+      "final_alert_count": 3,
+      "any_alert_probability": 0.0013333333333333333,
+      "any_alert_one_sided_95_upper": 0.003048553035598473
+    },
+    "E27": {
+      "independent_recordings": 3000,
+      "any_alert_count": 6,
+      "final_alert_count": 6,
+      "any_alert_probability": 0.002,
+      "any_alert_one_sided_95_upper": 0.003943622233641661
+    },
+    "DS": {
+      "independent_recordings": 3000,
+      "any_alert_count": 8,
+      "final_alert_count": 8,
+      "any_alert_probability": 0.0026666666666666666,
+      "any_alert_one_sided_95_upper": 0.004806390402371995
+    },
+    "TS1": {
+      "independent_recordings": 3000,
+      "any_alert_count": 36,
+      "final_alert_count": 36,
+      "any_alert_probability": 0.012,
+      "any_alert_one_sided_95_upper": 0.015816382864849876
+    },
+    "TS2": {
+      "independent_recordings": 3000,
+      "any_alert_count": 23,
+      "final_alert_count": 23,
+      "any_alert_probability": 0.007666666666666666,
+      "any_alert_one_sided_95_upper": 0.010844429869223139
+    },
+    "KT+LVD": {
+      "independent_recordings": 3000,
+      "any_alert_count": 15,
+      "final_alert_count": 15,
+      "any_alert_probability": 0.005,
+      "any_alert_one_sided_95_upper": 0.007688650641825517
+    }
+  },
+  "recorded_timing": {
+    "N5": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 60,
+      "first_correct_given_success_mean_s": 0.9971702102959777,
+      "target_operational_mean_s": 1.0264507159063214,
+      "empty_terminal_mean_s": 1.3733516233878618,
+      "balanced_operational_mean_s": 1.1999011696470916,
+      "first_correct_given_success_ci95_s": [
+        0.9111926265053745,
+        1.103735274732665
+      ],
+      "balanced_operational_ci95_s": [
+        1.146638206251032,
+        1.2615966554869829
+      ]
+    },
+    "S5": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 60,
+      "first_correct_given_success_mean_s": 1.013119822430114,
+      "target_operational_mean_s": 1.0412287457929779,
+      "empty_terminal_mean_s": 1.3750189384991245,
+      "balanced_operational_mean_s": 1.2081238421460512,
+      "first_correct_given_success_ci95_s": [
+        0.9159710243426544,
+        1.1324796988475305
+      ],
+      "balanced_operational_ci95_s": [
+        1.151100206540241,
+        1.2728191548624181
+      ]
+    },
+    "C9": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 60,
+      "first_correct_given_success_mean_s": 1.0434293723626373,
+      "target_operational_mean_s": 1.0709424602264335,
+      "empty_terminal_mean_s": 1.3752288548384968,
+      "balanced_operational_mean_s": 1.2230856575324651,
+      "first_correct_given_success_ci95_s": [
+        0.9609431445643037,
+        1.15552571998484
+      ],
+      "balanced_operational_ci95_s": [
+        1.1728471781615326,
+        1.2840381077078973
+      ]
+    },
+    "E27": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 60,
+      "first_correct_given_success_mean_s": 1.5710680569948938,
+      "target_operational_mean_s": 1.5731450222301646,
+      "empty_terminal_mean_s": 1.5700655415275833,
+      "balanced_operational_mean_s": 1.571605281878874,
+      "first_correct_given_success_ci95_s": [
+        1.5636673094210078,
+        1.57903742232045
+      ],
+      "balanced_operational_ci95_s": [
+        1.5660053068417255,
+        1.578400109022209
+      ]
+    },
+    "DS": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 61,
+      "first_correct_given_success_mean_s": 1.2765711676711065,
+      "target_operational_mean_s": 1.2775618793875765,
+      "empty_terminal_mean_s": 1.2705461132500204,
+      "balanced_operational_mean_s": 1.2740539963187985,
+      "first_correct_given_success_ci95_s": [
+        1.2668878174508205,
+        1.2872819441545102
+      ],
+      "balanced_operational_ci95_s": [
+        1.2669678798001995,
+        1.2825067586115437
+      ]
+    },
+    "TS1": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 60,
+      "first_correct_given_success_mean_s": 1.5669848865072709,
+      "target_operational_mean_s": 1.5692573941778392,
+      "empty_terminal_mean_s": 1.582110510844359,
+      "balanced_operational_mean_s": 1.575683952511099,
+      "first_correct_given_success_ci95_s": [
+        1.5572846452094258,
+        1.5769641855801333
+      ],
+      "balanced_operational_ci95_s": [
+        1.5684175684724095,
+        1.5835820877757443
+      ]
+    },
+    "TS2": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 56,
+      "first_correct_given_success_mean_s": 1.2874297092015954,
+      "target_operational_mean_s": 1.2901923247245577,
+      "empty_terminal_mean_s": 1.2941409414961527,
+      "balanced_operational_mean_s": 1.2921666331103552,
+      "first_correct_given_success_ci95_s": [
+        1.276142315134903,
+        1.298249790487988
+      ],
+      "balanced_operational_ci95_s": [
+        1.2844817828137365,
+        1.3008270839232865
+      ]
+    },
+    "KT+LVD": {
+      "target_records": 16,
+      "empty_records": 8,
+      "attempts_per_record": 4,
+      "successful_target_attempts": 59,
+      "first_correct_given_success_mean_s": 4.520261180018848,
+      "target_operational_mean_s": 4.480611794157085,
+      "empty_terminal_mean_s": 4.4710050425928785,
+      "balanced_operational_mean_s": 4.475808418374982,
+      "first_correct_given_success_ci95_s": [
+        4.448450798749993,
+        4.614787535486145
+      ],
+      "balanced_operational_ci95_s": [
+        4.438148464239407,
+        4.511672583035079
+      ]
+    }
+  },
+  "inference_performed": false,
+  "new_timing_measurement": false,
+  "bootstrap": {
+    "replicates": 20000,
+    "seed": 20261101,
+    "unit": "Whole recording, paired across methods; target/empty strata separate"
+  },
+  "limitation": "Recomputes saved outcomes and recorded-session statistics. Does not claim repeatable wall-clock timing or session-to-session uncertainty."
+}

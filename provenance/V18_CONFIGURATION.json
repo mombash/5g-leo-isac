@@ -1,0 +1,512 @@
+{
+  "submission": {
+    "id": "V18",
+    "source_sha256": "8456942d09b9cc33c253b42d9dbb22db8c09c008c593d4a6e900a78781d6a78b",
+    "pdf_sha256": "d8b592ddceb9b868f0ad684241c7150997129525234ff1e6ea0355ceaf2768d5",
+    "model_freeze_sha256": "74a6455f8553e7f942662f65176af89d60b748484a39a74cc3850f42f0021992",
+    "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b",
+    "final_timing_archive_sha256": "5c7546cf313c7e7067d65dbc5db41bb0ebedf06f128e8e88dd52c04a17691c13"
+  },
+  "model_provenance": {
+    "N5": {
+      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
+      "asset": "models/N5_step500_weights.pt",
+      "exported_asset_sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
+      "export": "model state_dict CPU tensors only; no optimizer/RNG/training metadata",
+      "tensors_identical": true,
+      "tensors": 42,
+      "original_checkpoint_top_level_keys": [
+        "cuda_rng",
+        "model",
+        "numpy_rng",
+        "optimizer",
+        "step",
+        "torch_rng"
+      ]
+    },
+    "S5": {
+      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "asset": "models/S5_linear_summary_alpha0.1.npz",
+      "exported_asset_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "byte_identical": true
+    }
+  },
+  "normalization_sha256": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
+  "prior_sha256": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49",
+  "gate": {
+    "kind": "physical",
+    "safety": "train_and_development",
+    "cutoff": 28.41327667236328
+  },
+  "physical_configuration_values_match": true,
+  "scientific_definitions_verified": 92,
+  "scientific_definitions": [
+    {
+      "module": "scenes",
+      "definition": "seed",
+      "source_sha256": "91cccc8ff08ccc11392fb988392d29a94139ee6c436e2521d5ebabcbe1eb14d0"
+    },
+    {
+      "module": "scenes",
+      "definition": "make_scene",
+      "source_sha256": "91cccc8ff08ccc11392fb988392d29a94139ee6c436e2521d5ebabcbe1eb14d0"
+    },
+    {
+      "module": "noise",
+      "definition": "noise",
+      "source_sha256": "fc0c637a7b880c0922668fde79def6d5a723817f0d654c7451e8b695f7325bfd"
+    },
+    {
+      "module": "simulation_data",
+      "definition": "EpisodeData",
+      "source_sha256": "fc0c637a7b880c0922668fde79def6d5a723817f0d654c7451e8b695f7325bfd"
+    },
+    {
+      "module": "geometry",
+      "definition": "unit",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "basis",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "satellite",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "target",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "panel",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "response",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "geometry",
+      "definition": "geometry",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105"
+    },
+    {
+      "module": "frontend",
+      "definition": "correlate",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657"
+    },
+    {
+      "module": "frontend",
+      "definition": "variances5",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657"
+    },
+    {
+      "module": "frontend",
+      "definition": "complex_maps",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657"
+    },
+    {
+      "module": "cancellation",
+      "definition": "_template",
+      "source_sha256": "7932df5afc951193cf434f05a4cd4ea1138073d6a70de64c3db5b740b56ad730"
+    },
+    {
+      "module": "cancellation",
+      "definition": "cancel_sinc",
+      "source_sha256": "7932df5afc951193cf434f05a4cd4ea1138073d6a70de64c3db5b740b56ad730"
+    },
+    {
+      "module": "warp_table",
+      "definition": "interpolation_table",
+      "source_sha256": "b6c4632ba965e7589d4f91247f8db6987429f18436c2f84a663a81bf6902e3fa"
+    },
+    {
+      "module": "warp",
+      "definition": "warp_kernel",
+      "source_sha256": "9d3653d27596002271ef578779de2f7ac476b25d0cbaab8910361ab9225bac7d"
+    },
+    {
+      "module": "warp",
+      "definition": "gpu_warp",
+      "source_sha256": "9d3653d27596002271ef578779de2f7ac476b25d0cbaab8910361ab9225bac7d"
+    },
+    {
+      "module": "decimation",
+      "definition": "decimate_gpu",
+      "source_sha256": "0ef09c209028f22e18c87eaba752797380d9386a3b9011bf171b8ff84b293a3c"
+    },
+    {
+      "module": "coherent",
+      "definition": "decode",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a"
+    },
+    {
+      "module": "coherent",
+      "definition": "ClassicalEpisode",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a"
+    },
+    {
+      "module": "coherent",
+      "definition": "CoherentEpisode",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a"
+    },
+    {
+      "module": "native",
+      "definition": "native_rows",
+      "source_sha256": "a77d19c411fe729f496c5aaf94c328f8516e873affd7a9034c7d80eadc9b213b"
+    },
+    {
+      "module": "verifier",
+      "definition": "_sample",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3"
+    },
+    {
+      "module": "verifier",
+      "definition": "LocalVerifier",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3"
+    },
+    {
+      "module": "verifier",
+      "definition": "cpu_scores",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3"
+    },
+    {
+      "module": "refinement",
+      "definition": "endpoint",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec"
+    },
+    {
+      "module": "refinement",
+      "definition": "midpoint",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec"
+    },
+    {
+      "module": "refinement",
+      "definition": "phase_traces",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec"
+    },
+    {
+      "module": "refinement",
+      "definition": "physical_scores",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec"
+    },
+    {
+      "module": "refinement",
+      "definition": "classical_refine",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec"
+    },
+    {
+      "module": "physical_features",
+      "definition": "physical_features",
+      "source_sha256": "fdbc62788839ec7343cef9ee310a83ff5de3c26589e368642259f5b07d5cb166"
+    },
+    {
+      "module": "set_features",
+      "definition": "observed_features",
+      "source_sha256": "99daaea5e9064d23b9ac9627742df4d4e35ad6d481a13d389d1508613b16a8ba"
+    },
+    {
+      "module": "phase_features",
+      "definition": "midpoint_np",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92"
+    },
+    {
+      "module": "phase_features",
+      "definition": "endpoint_np",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92"
+    },
+    {
+      "module": "phase_features",
+      "definition": "observed_phase_features",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92"
+    },
+    {
+      "module": "innovation",
+      "definition": "innovation",
+      "source_sha256": "fe262148b2c9b7f16863cf7697b8a28846a64ff7c3b9706990e2a122bed684d1"
+    },
+    {
+      "module": "evidence",
+      "definition": "Evidence",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d"
+    },
+    {
+      "module": "model_core",
+      "definition": "normalize",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355"
+    },
+    {
+      "module": "model_core",
+      "definition": "CapacityNet",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355"
+    },
+    {
+      "module": "model_core",
+      "definition": "flat",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355"
+    },
+    {
+      "module": "model_core",
+      "definition": "cuda_values",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355"
+    },
+    {
+      "module": "model_static",
+      "definition": "StaticNet",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d"
+    },
+    {
+      "module": "model_static",
+      "definition": "Affine",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d"
+    },
+    {
+      "module": "model_static",
+      "definition": "Captured",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d"
+    },
+    {
+      "module": "measurements",
+      "definition": "Measurements",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee"
+    },
+    {
+      "module": "two_look",
+      "definition": "Policy",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "first_decisions",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "cell_decisions",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "propagate",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "normalized_energy",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "run",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "two_look",
+      "definition": "gpu_callbacks",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c"
+    },
+    {
+      "module": "ts_backend",
+      "definition": "Backend",
+      "source_sha256": "8cae1095db740ea66babfcf985195941ff2a42a34f39b6e31d311eb97ec0ee45"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "approximation_bound",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "groups",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "endpoint",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "dual_scale_rows",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "numpy_search",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "dual_scale",
+      "definition": "confirm_rows",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4"
+    },
+    {
+      "module": "kt_product",
+      "definition": "product_kernel",
+      "source_sha256": "aa35e7b150950f84450ba2017d2a30b951cab373beaa56f74fee8643aa567db7"
+    },
+    {
+      "module": "kt_product",
+      "definition": "product",
+      "source_sha256": "aa35e7b150950f84450ba2017d2a30b951cab373beaa56f74fee8643aa567db7"
+    },
+    {
+      "module": "kt_lvd",
+      "definition": "interpolate_fft",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7"
+    },
+    {
+      "module": "kt_lvd",
+      "definition": "coordinates",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7"
+    },
+    {
+      "module": "kt_lvd",
+      "definition": "support_plan",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7"
+    },
+    {
+      "module": "kt_lvd",
+      "definition": "lvd",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7"
+    },
+    {
+      "module": "kt_lvd",
+      "definition": "infer",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7"
+    },
+    {
+      "module": "gate",
+      "definition": "feature",
+      "source_sha256": "4fc347e4c4a85eec237c2c809221c8aaa28b5c6b4723ac87081a5ffe5b78ca06"
+    },
+    {
+      "module": "gate",
+      "definition": "run",
+      "source_sha256": "4fc347e4c4a85eec237c2c809221c8aaa28b5c6b4723ac87081a5ffe5b78ca06"
+    },
+    {
+      "module": "base_backend",
+      "definition": "Backend",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443"
+    },
+    {
+      "module": "final_backend",
+      "definition": "FinalGateBackend",
+      "source_sha256": "ae7b1089c8a6b4b9fe36e46e06483629aa2ca938b260123297603cd2220ccec5"
+    },
+    {
+      "module": "reader_core",
+      "definition": "vector",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee"
+    },
+    {
+      "module": "reader_core",
+      "definition": "Reader",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee"
+    },
+    {
+      "module": "query_reader",
+      "definition": "FastReader",
+      "source_sha256": "0a24977653e0c63e83101cb76d7f505f9a13881a75bfaabd5b2b52d36df35224"
+    },
+    {
+      "module": "query_stage",
+      "definition": "Backend",
+      "source_sha256": "3accccd7aa3467eccbb263442a7b81c84abb1775e16afcbd0115c06f24c39496"
+    },
+    {
+      "module": "query_stage",
+      "definition": "looks",
+      "source_sha256": "3accccd7aa3467eccbb263442a7b81c84abb1775e16afcbd0115c06f24c39496"
+    },
+    {
+      "module": "scheduler",
+      "definition": "stream_resources",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443"
+    },
+    {
+      "module": "scheduler",
+      "definition": "StreamingRecord",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443"
+    },
+    {
+      "module": "kt_scheduler",
+      "definition": "StreamingRecord",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443"
+    },
+    {
+      "module": "ts_scheduler",
+      "definition": "StreamingRecord",
+      "source_sha256": "8cae1095db740ea66babfcf985195941ff2a42a34f39b6e31d311eb97ec0ee45"
+    },
+    {
+      "module": "ds_backend",
+      "definition": "StreamingBackend",
+      "source_sha256": "67790af7d82ced70ba1c5fa9c430237937d82e1379c1eab72dd3d7e17a2efb1b"
+    },
+    {
+      "module": "kt_backend",
+      "definition": "Backend",
+      "source_sha256": "05760fc944e850536592d24cd5cf2b64f1c45fd1b96d0afd4b6338d4e9fa3b24"
+    },
+    {
+      "module": "scoring",
+      "definition": "score_emissions",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85"
+    },
+    {
+      "module": "scoring",
+      "definition": "events_from_attempt",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85"
+    },
+    {
+      "module": "scoring",
+      "definition": "mixture_time",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85"
+    },
+    {
+      "module": "scoring",
+      "definition": "standardized_metrics",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85"
+    },
+    {
+      "module": "numerics",
+      "definition": "float32_up",
+      "source_sha256": "5b962157cbe59ec787a7a2c2a5deeff69972c3930385da474d97a75a110b56a8"
+    },
+    {
+      "module": "duration_adapters",
+      "definition": "ShortData",
+      "source_sha256": "57a908963390134ade9d5edf1d39f228a3f6c98bd6e3331a52722f4eb12e9724"
+    },
+    {
+      "module": "duration_adapters",
+      "definition": "ShortScheduler",
+      "source_sha256": "57a908963390134ade9d5edf1d39f228a3f6c98bd6e3331a52722f4eb12e9724"
+    },
+    {
+      "module": "query_scheduler",
+      "definition": "receiver_classes.QueryRecord",
+      "source_sha256": "996a073bdc453cca9ab20082bd7cb31dd29d78fa15298495a1f4ff88a5cdeec1"
+    },
+    {
+      "module": "warmup",
+      "definition": "warm_backends",
+      "source_sha256": "1bb8da57c60786a76305d31c1aea262d2dd17b3091794a06d1b8ae681c60c5e6"
+    }
+  ],
+  "scientific_delta": "Final frozen N5/S5 models; existing numerical scheduler/preprocessing/features/refinement/scoring/baselines unchanged.",
+  "portable_adaptations": [
+    "weights_only=True for exported neural state_dict",
+    "Optional explicit warmup inputs for disjoint calibration protocol; measured path unchanged"
+  ],
+  "source_package_preserved": true,
+  "source_results_manuscript_modified": false
+}

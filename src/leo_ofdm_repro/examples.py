@@ -11,4 +11,4 @@ def scoring_check():
                               truth_at=lambda t:case['truth_by_horizon'][str(t)],terminal_s=case['terminal_s'])
         for name,expected in case['expected'].items():
             if actual[name]!=expected:raise AssertionError(f'{case["name"]}: {name} differs')
-    return dict(passed=True,saved_attempt_examples=len(fixture['cases']),new_inference=False)
+    return dict(passed=True,saved_attempt_examples=len(fixture['cases']),new_inference=False,fixture_origin="Historical r2 scoring conformance; use reproduce for V18 outcomes")

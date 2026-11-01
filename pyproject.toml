@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "leo-ofdm-reproducible-package"
-version = "0.1.0"
+version = "0.2.0"
 description = "Selected LEO OFDM simulator and receiver implementation"
 requires-python = ">=3.10"
 dependencies = ["numpy==2.1.3", "scipy==1.15.3"]
@@ -21,4 +21,4 @@ namespaces = false
 include = ["leo_ofdm_repro", "leo_ofdm_repro.*"]
 
 [tool.setuptools.package-data]
-leo_ofdm_repro = ["_config/*.json", "NOTICES.md", "matlab/**/*.m", "native/*.cpp"]
+leo_ofdm_repro = ["_config/*.json", "_config/*.json.gz", "NOTICES.md", "matlab/**/*.m", "native/*.cpp"]

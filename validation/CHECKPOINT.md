@@ -1,40 +1,26 @@
-# r2 standalone simulator/receiver checkpoint — 28 October 2026
+# V18 submission package checkpoint
 
-r2 extends the immutable prepared-input candidate `fb438952a246a89ed7ea5d78d12bcf517154cc06` with portable generation inputs/commands and the original digital sample-paced frontend/scheduler/controllers for all eight selected routes. r1's delivery remains unchanged. A later package commit and exact delivery/file manifests identify r2.
+The default package is version 0.2.0 and uses the final selected V18 models. Original scientific source/campaign commits remain 194f43575a482fcd316a78e5805a6786462bfcb2 and 495f4f757464f8edda0a1d4fe457e74c0e5f232d. The adopted paper source/PDF identities and final timing archive hash are in provenance/SNAPSHOT.json. Manuscript, original package, campaigns and results were not modified.
 
-## Source and scientific identity
+## Verified for this update
 
-Source commit: `194f43575a482fcd316a78e5805a6786462bfcb2`. Evaluated adapter/scoring commit: `495f4f757464f8edda0a1d4fe457e74c0e5f232d`. Source snapshot: `74d685d6bd035144c6aaf67afc9f900c2247323090c5162c6b13517136668cc5`. The first repository remains clean; the second retains its 24 unrelated untracked entries. No original scientific source/results/manuscript changes are part of r2.
+- All 92 extracted scientific definitions match the frozen evaluated source. Normalization, rate prior, gate and physical values match their original prerequisites. Precision, observation prefixes, features, thresholds, refinement, withdrawal/gate rules, scoring and baseline adaptations remain unchanged.
+- N5 original checkpoint SHA-256 is 576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3. The shipped weights-only export SHA-256 is e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8. Every model tensor has identical values, dtype and shape. Optimizer/RNG/training metadata is excluded.
+- S5 remains byte-identical to the final checkpoint, SHA-256 49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d.
+- Four saved development-input selector comparisons match the final evaluated readers. All eight receivers match predictions/scores, candidate choices, gate decisions and emitted alerts on two bounded saved-input fixtures. The attenuated fixture exercises no-alert/15-rate final rejection; the stronger fixture exercises alerts/full continuation. Maximum receiver point difference was zero.
+- The three existing always27 component controls also match the frozen reference on those two fixtures, including 27 final searches on the weak-input case. These are existing evaluated controls, not new methods.
+- Twenty standalone scoring/asset/raw-input/causality tests pass.
+- Compact saved-outcome recomputation matches all eight quality and fresh-FA endpoints, Nov 1 timing point means and the original 20000-replicate whole-record paired bootstrap. No new inference or measurement is performed by this recomputation.
+- Source installation and the built wheel pass methods, full asset verification, saved-outcome recomputation and frozen-input export with original scientific and authoring source reads denied. One installed N5 prepared/paced smoke also matches predictions, candidates, gate decisions and alerts, with actual timestamp causality checked. The explicit warmup-input path is exercised on the smoke input; it is not a recreation of the paper's disjoint calibration warmup record.
 
-Retained-frozen-v5 thresholds, models, feature/scoring definitions, TS2 upward float32 bounds and OLD KT+LVD selection remain fixed. KT retains nt4000/batch32/matrix/lag_block256 and one search worker. No calibration, training, sweep, dataset expansion or baseline substitution occurs.
+The bounded update GPU comparisons use an existing saved synthetic raw direct/echo/noise fixture and its attenuated correlations; they are not recovery of a held-out V18 physical recording. They validate implementation agreement, not detection-rate precision or a timing advantage. Dependency and build environments are the existing validated environments; no full dependency reinstall was performed.
 
-## Implemented and bounded checks
+## Reproduction evidence
 
-| Capability | Evidence and limits |
-|---|---|
-| Fresh CPU dependencies | NumPy 2.1.3/SciPy 1.15.3 downloaded and installed into a venv without host site packages; installed methods/examples/assets/recorded-input/geometry/raw-slice commands run with source reads denied. |
-| Fresh GPU dependencies | Complete PyTorch 2.6.0+cu124/Triton 3.2.0 and declared dependency stack downloaded into a separate venv on owned large-volume scratch. All eight installed paced routes run; outputs match prior current-source checks. Full tested versions are supplied as locks. Evaluated environment unchanged. |
-| NR waveform | Actual 3-frame, 30 ms n256/full-occupancy waveform generated with recorded seeds: 921600 complex samples, about 7.4 MB. Short-output normalization only. No 402-frame/hash recovery claim. |
-| Raw generation | One existing target scene/seeds through a 20 ms propagation/interpolation/noise slice. Reference, observation and alignment match current committed class bit for bit on the same supplied short waveform. Portable example/geometry/generate commands also run from the installed CPU wheel. |
-| Paced receiver | One synthetic 1 s NR-based direct-path/echo/noise raw fixture through all eight original controllers. Actual cancellation/correlation/reference variance preparation, queueing, physical searches and emitted outputs execute. Prepared arrays match current source bit for bit; predictions/alerts/selected candidates match, maximum point difference 0. Actual timestamp causality checked. |
-| Warmup | Committed campaign warm_backends sequence prepares the first supplied second and selected physical shapes before the measured origin. Single-baseline execution also supplies the original native-query search-stream warmup. Warmup inputs/source are explicit. No truth/parameter adaptation. |
-| Behavioral contracts | 13 standalone scoring/asset tests plus seven raw-input/causality tests. Forty saved scoring examples retain wrong-first/later-correct, earlier-correct/wrong-final and any-empty-false-alert definitions. Historical 17 authoring tests/288 replays remain separate. |
-| Earlier numerical checks | One registered geometry scene (8 arrays/4041 time points), 200 native interpolation values and all eight prepared routes match current committed sources for their stated cases. |
+Quality is exactly 512 independent four-second UAV recordings (sealed original256+new256), giving 2048 dependent attempts. Unsealed extension extras are excluded. False alerts use the separate completed fixed3000 independent one-second no-UAV recordings, counting any emitted alert including withdrawals. Prior300short/16long recordings are not pooled into that endpoint.
 
-Actual NR functions executed successfully under MATLAB R2026a. A separate feature-name license-test query returned false despite successful generation; the runtime emitted a two-day expiry notice. Those facts are retained without inferring that functionality is unavailable. No license acquisition/renewal occurred.
+Timing uses the final Nov1 contemporaneous panel of 16 UAV and eight no-UAV four-second recordings plus existing component controls. The host-digital boundary includes frontend/preparation, selection/search/refinement, emitted outputs and backlog; disk/RF/ADC/acquisition/alignment estimation/model load/JIT/warmup are excluded. Conditional first-correct and miss-inclusive50/50 operational means remain distinct. Whole-record bootstrap preserves four dependent attempts and uses paired draws across methods. This is recorded-session evidence, not a repeatable wall-clock guarantee or session-variation estimate.
 
-The first paced reference check exposed an omitted KT scheduler policy in new wrapper wiring; restoring the exact committed looks=[0]/k=53 fixed it. The failed owned validation process was stopped after it retained worker/GPU resources. Wrapper error cleanup now stops failed workers. These are packaging fixes; successful scientific arithmetic/control policies remain unchanged.
+The compact source-result records and frozen scene/seed manifests are included without private server paths. Exported FA metadata is an explicitly opened post-submission reproduction copy; original sealed manifests/results remain untouched. No bulky generated waveforms/raw datasets are shipped.
 
-## What the interfaces reproduce
-
-`paced` accepts exactly 1 s or 4 s raw complex64 samples, the reference's preceding 10 ms guard and supplied 20 ms alignment rows. Four seconds retains the original four-attempt scheduler; one second applies the committed capacity/controller-count adapter. It reports actual frontend/search/output times, checks causality and declares its digital boundary. `prepared` remains a one-second quality interface with timing_valid=false. Offline truth/scoring stays outside inference.
-
-The timing boundary starts with host-resident digital samples, after initialization/warmup. Disk reads, RF/ADC, beam acquisition and alignment estimation remain excluded, as in the selected source setup. A timing_valid=true output reports actual execution at this boundary; it is not a matched paper latency/performance claim. Host/load/warmup/input differences remain material.
-
-Full one-/four-second raw generation and the unchanged 402-frame waveform recipe are included but were not run in this bounded work. The four-attempt concurrency route is source-extracted but was not executed here. The actual paced smoke uses a repeated short NR waveform plus deterministic direct/echo/noise components, not a recovered evaluated physical recording. No detection probabilities or paper result tables are inferred from it.
-
-## Evidence and handoff
-
-Completed campaign evidence still identifies 256 targets (188 new plus 68 retained), 300 new one-second empties and 16 older four-second empties with their provenance. No saved result pooling/rewriting or manuscript wording change occurs.
-
-The local handoff contains the standalone wheel, the same verified seven-file companion bundle, installation/generation/receiver recipes, dependency locks, credits and exact hashes. Private source paths, original vendor trees, internal discussions and raw/generated data are excluded. Public redistribution terms remain separate; nothing was pushed or published. The existing reviewer can assess the changed readiness evidence against the final candidate, without a new scientific audit.
+Full 402-frame waveform/hash recovery, complete physical cohort regeneration, retraining, recalibration and a new timing campaign were not performed. The earlier source/NR/native checks remain historical r2 evidence in R2_CHECKPOINT.md and artifacts/r2. The default V18 wheel and companion asset ZIP are in artifacts/v18; exact hashes and source/install/parity receipts are retained alongside them.

@@ -7,6 +7,8 @@ from .context import use
 from .parameters import TIMES
 
 METHODS=('N5','S5','C9','E27','DS','TS1','TS2','KT+LVD')
+CONTROLS=('N5_always27','S5_always27','C9_always27')
+QUERY_METHODS=('N5','S5','C9')+CONTROLS
 
 
 class Runtime:
@@ -17,17 +19,19 @@ class Runtime:
         torch.backends.cuda.matmul.allow_tf32=False
         torch.backends.cudnn.allow_tf32=False
 
-    def settings(self,name):return copy.deepcopy(self.assets.configuration['methods'][name])
+    def settings(self,name):
+        group='controls' if name in CONTROLS else 'methods'
+        return copy.deepcopy(self.assets.configuration[group][name])
 
-    def paced(self,name,reference,observation,alignment):
+    def paced(self,name,reference,observation,alignment,*,warmup_inputs=None):
         from .paced import run
-        return run(self,name,reference,observation,alignment)[0]
+        return run(self,name,reference,observation,alignment,warmup_inputs=warmup_inputs)[0]
 
     def backend(self,name):
-        if name not in METHODS:raise ValueError('Unknown selected method.')
+        if name not in METHODS+CONTROLS:raise ValueError('Unknown selected method.')
         if name not in self.backends:
             with use(self.assets):
-                if name in {'N5','S5','C9'}:
+                if name in QUERY_METHODS:
                     from .query_stage import Backend
                     self.backends[name]=Backend(self.settings(name))
                 elif name=='E27':
@@ -42,10 +46,10 @@ class Runtime:
         if correlation.device.type!='cuda' or variance.device.type!='cuda':raise ValueError('Selected inference requires CUDA.')
         settings=self.settings(name)
         with use(self.assets):
-            if name in {'N5','S5','C9'}:
+            if name in QUERY_METHODS:
                 backend=self.backend(name);events=[];prior=False
                 for j,k in [(2,settings['budgets'][0]),(4,settings['budgets'][1]),(6,27)]:
-                    if j==6:backend.force_full[0]=prior
+                    if j==6:backend.force_full[0]=bool(settings.get('always27') or prior)
                     value=backend.stage(correlation,variance,0,j,k)
                     point=value['point'];alert=bool(point[0]>settings['threshold']);prior|=alert
                     events.append(dict(observation_s=float(TIMES[j]),prediction=point.tolist(),alert=alert,
@@ -79,4 +83,5 @@ class Runtime:
             else:raise ValueError('Unknown selected method.')
         return dict(method=name,events=events,any_alert=any(e['alert'] for e in events),final_alert=events[-1]['alert'],
                     timing_valid=False,source_commits=self.assets.configuration['source_commits'],
-                    operating_point=self.assets.configuration['operating_point'])
+                    operating_point=self.assets.configuration['operating_point'],submission=self.assets.configuration['submission'],
+                    model_provenance=self.assets.configuration['model_provenance'])

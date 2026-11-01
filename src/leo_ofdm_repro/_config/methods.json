@@ -1,14 +1,68 @@
 {
   "asset_sha256": {
-    "models/linear_summary_alpha0.1.npz": "947b946d746d5be1502c9f5d36119b0ce3e698bb2f295cfc4a2f429bbcb4a574",
-    "models/model_specs.json": "24aca69069128ec203ec9b4010f44d1d077bd34a195b99672a6df10faf4218ee",
+    "models/N5_step500_weights.pt": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
+    "models/S5_linear_summary_alpha0.1.npz": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+    "models/model_specs.json": "ef303706e1183ae21582c08ddea969359d599bdef8b1791b5ccba9ddb8824ff8",
     "models/normalization.npz": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
-    "models/query_rich_step1000.pt": "1a2432ed38cb4dfd7ec3b92b54baa50cc038f2cad0965acb5b43169c5c098b03",
     "physical_configuration.json": "921a319063657de01040ca2bcd7e4324f484fc7530dce7519c7ba1a4cbe02038",
     "policies/final_gate/freeze.json": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f",
     "policies/phase_refinement/rate_prior.npy": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49"
   },
   "claim_boundary": "No new calibration or nominal population false-alarm guarantee.",
+  "controls": {
+    "C9_always27": {
+      "always27": true,
+      "budgets": [
+        9,
+        9
+      ],
+      "family": "adaptive_classical",
+      "first_k": 9,
+      "id": "C9_always27",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "query_model": null,
+      "threshold": 28.148725509643555
+    },
+    "N5_always27": {
+      "always27": true,
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive_classical",
+      "first_k": 9,
+      "id": "N5_always27",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "query_model": "query_rich_step1000",
+      "threshold": 28.148725509643555,
+      "trained_selector_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
+      "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
+    },
+    "S5_always27": {
+      "always27": true,
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive_classical",
+      "first_k": 9,
+      "id": "S5_always27",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "query_model": "linear_summary_alpha0.1",
+      "threshold": 28.148725509643555,
+      "trained_selector_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
+    }
+  },
   "fresh_calibration_performed": false,
   "gate": {
     "cutoff": 28.41327667236328,
@@ -22,6 +76,7 @@
         9
       ],
       "family": "adaptive_classical",
+      "first_k": 9,
       "id": "C9",
       "kind": "simple",
       "label": "Classical selection, nine early candidates",
@@ -75,6 +130,7 @@
         5
       ],
       "family": "adaptive_classical",
+      "first_k": 9,
       "id": "N5",
       "kind": "simple",
       "label": "Neural selection, five early candidates",
@@ -82,7 +138,9 @@
         "k": 9
       },
       "query_model": "query_rich_step1000",
-      "threshold": 28.148725509643555
+      "threshold": 28.148725509643555,
+      "trained_selector_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
+      "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
     },
     "S5": {
       "budgets": [
@@ -90,6 +148,7 @@
         5
       ],
       "family": "adaptive_classical",
+      "first_k": 9,
       "id": "S5",
       "kind": "simple",
       "label": "Statistical selection, five early candidates",
@@ -97,7 +156,9 @@
         "k": 9
       },
       "query_model": "linear_summary_alpha0.1",
-      "threshold": 28.148725509643555
+      "threshold": 28.148725509643555,
+      "trained_selector_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
     },
     "TS1": {
       "id": "TS1",
@@ -122,15 +183,47 @@
       }
     }
   },
+  "model_provenance": {
+    "N5": {
+      "asset": "models/N5_step500_weights.pt",
+      "export": "model state_dict CPU tensors only; no optimizer/RNG/training metadata",
+      "exported_asset_sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
+      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3",
+      "original_checkpoint_top_level_keys": [
+        "cuda_rng",
+        "model",
+        "numpy_rng",
+        "optimizer",
+        "step",
+        "torch_rng"
+      ],
+      "tensors": 42,
+      "tensors_identical": true
+    },
+    "S5": {
+      "asset": "models/S5_linear_summary_alpha0.1.npz",
+      "byte_identical": true,
+      "exported_asset_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
+    }
+  },
   "old_kt_source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
   "operating_point": {
     "name": "retained-frozen-v5",
     "sha256": "74285fbebead2b1cfb0383a9e5c9982849dd58afa405fa47e3e72af6e4a3f0e1"
   },
-  "schema": 1,
+  "schema": 2,
   "source_commits": {
     "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
     "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "submission": {
+    "final_timing_archive_sha256": "5c7546cf313c7e7067d65dbc5db41bb0ebedf06f128e8e88dd52c04a17691c13",
+    "id": "V18",
+    "model_freeze_sha256": "74a6455f8553e7f942662f65176af89d60b748484a39a74cc3850f42f0021992",
+    "pdf_sha256": "d8b592ddceb9b868f0ad684241c7150997129525234ff1e6ea0355ceaf2768d5",
+    "source_sha256": "8456942d09b9cc33c253b42d9dbb22db8c09c008c593d4a6e900a78781d6a78b",
+    "training_freeze_sha256": "664b4460bf412e0cf6c65c71a36d1c918885fd167d9bbca17715765779993e2b"
   },
   "threshold_semantics": "Retained historical settings; TS2 lower/upper use the committed float32_up conversion at execution."
 }

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "tests": 20,
+  "source_unchanged_scoring_asset_contracts": 13,
+  "raw_input_causality_contracts": 7,
+  "skipped": 0,
+  "log_sha256": "c06ed5b7132facc7552c42d18a2bb32a30772dd2602c5e9c3de970b8cabb4d81",
+  "no_campaign": true
+}

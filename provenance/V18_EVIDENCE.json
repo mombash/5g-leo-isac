@@ -1,0 +1,44 @@
+{
+  "submission": "V18",
+  "quality_records": 512,
+  "dependent_quality_attempts": 2048,
+  "fresh_fa_records": 3000,
+  "timing_target_records": 16,
+  "timing_empty_records": 8,
+  "timing_attempts_per_record": 4,
+  "controls": [
+    "N5_always27",
+    "S5_always27",
+    "C9_always27"
+  ],
+  "cohorts": {
+    "quality-engineering-pilot": 16,
+    "quality-new1024-target-extension": 256,
+    "quality-previous188-target-extension": 188,
+    "quality-previous52-target-continuation": 52,
+    "fa-fixed3000": 3000,
+    "warmup-calibration60": 60
+  },
+  "provenance": {
+    "quality_evaluation_plan_sha256": "3f6b4d83371e2c4954c1863cdbeb0598b33545170aee0288ea4a9581d415d74f",
+    "quality_sealed_archive_sha256": "14ac327c5a65086f2801816e49aec10f401abd0a6980b47ba7c9abec68a357aa",
+    "model_freeze_sha256": "74a6455f8553e7f942662f65176af89d60b748484a39a74cc3850f42f0021992",
+    "fresh_false_alert_manifest_sha256": "5bbf19850459aa271e8f3065f406647d242034f9702fc25e743bd750feffb6af",
+    "fresh_false_alert_results_sha256": "09dcd96fd7a1faa72ff6563ec289e6e3a53296cbc9acb250fd6e8ef53e61751c",
+    "final_timing_archive_sha256": "5c7546cf313c7e7067d65dbc5db41bb0ebedf06f128e8e88dd52c04a17691c13",
+    "final_timing_scope_sha256": "62794935d00ada6cb73460fcebebc3b752b773d9ac2bff65ba708a48a2eacdca",
+    "timing_session_uncertainty": "Record-paired case variation in one session; no repeatable wall-clock or session-variation claim."
+  },
+  "compact_files": {
+    "submission_evidence.json.gz": {
+      "sha256": "e9007f7e7ab0edaf1bfc45fffae1879bb2731475302c72c7f694a09dee0ca8a6",
+      "bytes": 923980
+    },
+    "submission_inputs.json.gz": {
+      "sha256": "f7f10a6cb1f0d023ee870d21171f2a6ab8098704c46be210626f674f06b47b8d",
+      "bytes": 538100
+    }
+  },
+  "bulk_raw_waveforms_datasets_included": false,
+  "source_metadata_private_paths_removed": true
+}

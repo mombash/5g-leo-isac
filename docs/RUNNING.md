@@ -1,10 +1,10 @@
 # Installation and standalone reproduction
 
-Use `leo_ofdm_repro`. The r1 prepared-input handoff remains immutable. r2 adds the current committed sample-paced scheduler, raw generation commands, a recorded scene/seed example and fresh dependency-installation checks. Original source/results/manuscript are unchanged.
+The default implementation is V18, package version 0.2.0, with the final selected N5/S5 weights and retained physical/scoring configuration. Historical r2 artifacts remain in artifacts/r2. See the root README for exact original/exported checkpoint hashes.
 
 ## Install the local delivery
 
-This repository includes the unchanged r2 delivery under artifacts/r2 and its extracted companion bundle under selected_assets. Run these commands from the repository root. No original server checkout is required. Read the root README model-version warning before interpreting reproduction claims.
+This repository includes the current V18 delivery under artifacts/v18 and its extracted companion bundle under selected_assets. The artifacts/r2 directory is historical. Run these commands from the repository root. No original server checkout is required. Read the root README submission provenance and validation limits before interpreting reproduction claims.
 
 ```sh
 python3 -m venv .venv
@@ -23,7 +23,7 @@ For GPU execution, use a separate environment and install `requirements-gpu.lock
 .venv/bin/python -m pip install --no-deps .
 ```
 
-The wheel also declares the equivalent top-level `gpu` extra (`torch==2.6.0+cu124`, `triton==3.2.0`). The locks record the complete dependency versions installed during this check. CPU runtime pins are NumPy 2.1.3 and SciPy 1.15.3. The tested interpreter is Linux/Python 3.10.12; GPU execution used an NVIDIA A10-24Q. Build tools are separate: setuptools 75.8.0 and wheel 0.45.1. The evaluated environment was not modified.
+The wheel also declares the equivalent top-level `gpu` extra (`torch==2.6.0+cu124`, `triton==3.2.0`). The locks retain the complete versions from the existing validated isolated environment; no dependency-stack reinstallation is needed for the V18 update. CPU runtime pins are NumPy 2.1.3 and SciPy 1.15.3. The tested interpreter is Linux/Python 3.10.12; GPU execution used an NVIDIA A10-24Q. Build tools are separate: setuptools 75.8.0 and wheel 0.45.1. The evaluated environment was not modified.
 
 Fresh CPU and complete GPU dependency stacks were downloaded and installed into isolated environments. The installed CPU commands, raw-generation slice and all eight installed paced receiver routes were exercised outside the checkouts with original-source and package-authoring-source reads denied. This is a bounded installation/execution check, not cross-platform certification. The GPU environment occupied about 5.2 GiB; allow additional space for downloads, temporary extraction and caches.
 
@@ -48,7 +48,7 @@ Select N5/S5/C9/E27/DS/TS1/TS2/KT+LVD. Supply NumPy arrays:
 
 Supported durations are exactly 1 s and 4 s. Four seconds uses the original four-attempt scheduler. One second uses the committed capacity/controller-count adapter used for the completed short-recording evaluation. Every attempt retains its own one-second observation clock. KT preserves its one-search-worker scheduler; the other selected routes retain two search workers and their original controller streams. N5/S5/C9 retain early emitted warnings and the final continuation/refinement output separately.
 
-The command loads raw files, initializes the receiver and executes the committed warmup sequence before the measured clock starts. Warmup prepares the first supplied second and calls the selected physical shapes; a native-query backend supplies the committed persistent-search-stream warmup for standalone baseline runs. It does not use truth or adapt parameters. The warmup source/input are explicit in the output. The scheduler then waits for each digital sample boundary, executes cancellation, correlation and reference-variance preparation on its preparation stream, queues actual searches and records measured frontend/search/output times. It checks that no preparation/search/output precedes the required samples or preparation. No truth or target identity enters the receiver. Outputs are not reconstructed from prepared results or assigned synthetic availability times.
+The command loads raw files, initializes the receiver and executes the committed warmup sequence before the measured clock starts. Warmup prepares the first supplied second and calls the selected physical shapes; a native-query backend supplies the committed persistent-search-stream warmup for standalone baseline runs. It does not use truth or adapt parameters. The warmup source/input are explicit in the output. The scheduler then waits for each digital sample boundary, executes cancellation, correlation and reference-variance preparation on its preparation stream, queues actual searches and records measured frontend/search/output times. It checks that no preparation/search/output precedes the required samples or preparation. No truth or target identity enters the receiver. Outputs are not reconstructed from prepared results or assigned synthetic availability times. All three optional --warmup-reference/--warmup-observation/--warmup-alignment paths select explicit warmup arrays; use a disjoint calibration recording to match the submission protocol. Without these paths the CLI declares warmup on the receiver input. The existing N5_always27/S5_always27/C9_always27 component controls use the same selectors and force a full final search.
 
 `timing_valid=true` means actual timestamps for this stated **host-resident digital sample-paced boundary**. Disk reads, initialization/JIT/model loading, RF/ADC, acquisition and alignment estimation are excluded. Warmup, hardware, contention and supplied inputs affect elapsed times. The smoke receipts establish causal execution and numerical agreement on one synthetic input per method; they do not establish matched paper latency or performance. The default four-second concurrency path is source-extracted but was not executed in this bounded check.
 
@@ -144,3 +144,17 @@ python3 -m pip wheel --no-deps . --wheel-dir ./dist
 ```
 
 The delivery manifest binds source commits, wheel payload, companion assets and documentation. Authoring provenance/tools and the old vendor tree are excluded from the wheel/source distribution. No original scientific source/results/manuscript are edited, and no push/publication is performed. Public redistribution terms remain a separate unresolved release matter.
+
+## Submission outcomes and frozen input metadata
+
+```sh
+.venv/bin/python -m leo_ofdm_repro reproduce
+.venv/bin/python -m leo_ofdm_repro submission-inputs \
+  --cohort quality-new1024-target-extension --waveform-root "$PWD/waveforms" --output ./submission-inputs
+```
+
+`reproduce` recomputes the saved V18 quality/FA endpoints and Nov 1 recorded timing statistics, including the original 20000-replicate paired whole-record bootstrap (seed 20261101). It performs no inference, synthesis or timing measurement. `--no-bootstrap` omits interval recomputation. Timing is the final 16-UAV/8-no-UAV four-second panel, not the earlier per-cohort quality-execution clocks.
+
+Input cohorts are `quality-engineering-pilot`, `quality-previous52-target-continuation`, `quality-previous188-target-extension`, `quality-new1024-target-extension`, `fa-fixed3000` and `warmup-calibration60`. The four quality exports total exactly 512 independent records; unsealed extension extras are excluded. FA is its separate fixed 3000 independent one-second cohort. Export reports the split/episode/scene IDs, includes scene and waveform-seed metadata and a contract, and points waveform paths under the supplied owned directory. It generates no samples.
+
+These are post-submission reproduction copies of already completed inputs. The original FA manifest was sealed before outcomes and remains unchanged; the exported copy is administratively opened for explicit reproduction, without changing any scene/seed or sampler selection. Full waveform SHA-256 values are included where matched to the fixed nineteen-waveform library. No NR waveform/raw dataset is bundled. Follow the geometry, native interpolation, MATLAB and generate recipes below with the exported IDs. Large generation remains explicit.

@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "scope": "Current publication candidates and every blob reachable from all local Git references; recursive ZIP/gzip and non-executing pickle metadata inspection",
+  "candidate_files": 136,
+  "historical_commits": 1,
+  "historical_blobs": 108,
+  "entries": 261,
+  "expanded_bytes": 29085175,
+  "archives": 12,
+  "pickle_metadata": 1,
+  "findings": [],
+  "checks": [
+    "credential patterns",
+    "private server paths",
+    "internal hostname",
+    "private IPv4 candidates",
+    "private keys",
+    "unexpected executable/key files"
+  ],
+  "original_package_unchanged": true,
+  "adopted_paper_unchanged": true,
+  "limitations": "Pattern and structural audit; does not prove the absence of every possible secret. Research code and own trained assets are published under existing rights notices; external MATLAB/5G Toolbox is not included.",
+  "resolved_candidates": [
+    {
+      "files": [
+        "artifacts/r2/requirements-gpu.lock",
+        "validation/r2_fresh_gpu_installation.json"
+      ],
+      "reason": "10.3.5.147 is the pinned nvidia-curand-cu12 package version, not a network address."
+    }
+  ]
+}
