@@ -4,7 +4,7 @@
     "models/statistical_selector.npz": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
     "models/model_specs.json": "83dcd819d0f267f20397ddd49c0f59a1a43f5ed0758d10e52b713029c16ccb63",
     "models/normalization.npz": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
-    "physical_configuration.json": "921a319063657de01040ca2bcd7e4324f484fc7530dce7519c7ba1a4cbe02038",
+    "physical_configuration.json": "91f76a9b84c788849d1e190ff847b568756a8604d2c7dd4eef5b7772e7253258",
     "policies/final_gate/freeze.json": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f",
     "policies/phase_refinement/rate_prior.npy": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49"
   },

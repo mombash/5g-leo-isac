@@ -2,7 +2,6 @@
   "propagation": {
     "delay_tolerance_s": 1e-10,
     "endpoint_tolerance_m": 1e-07,
-    "extent_status": "3 km working extent accepted after bounded 3/4/5 km audit; inner geometry unchanged",
     "field_relative_tolerance": 0.01,
     "geometry_step_s": 0.01,
     "map_half_extents_m": [
@@ -33,7 +32,7 @@
       1,
       0
     ],
-    "uav_polarization_model": "rank-one reciprocal co-polar point scatterer; fixed RCS and zero scattering phase"
+    "uav_polarization_model": "rank-one reciprocal co-polar point scatterer; RCS is fixed within each recording and scattering phase is supplied by the scene"
   },
   "receiver": {
     "antenna_temperature_K": 290,

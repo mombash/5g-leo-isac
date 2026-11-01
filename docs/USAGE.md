@@ -25,7 +25,7 @@ The following sequence starts with one supplied UAV scene. It computes geometry,
   --assets selected_assets --inputs work/inputs --output work/geometry
 ```
 
-The input directory contains a manifest, `scene.json`, `waveform.json`, `contract.json` and `inputs.json`. The manifest preserves the scene, noise, payload and control seeds. `inputs.json` identifies the first recording and its geometry paths. Geometry contains bistatic path lengths, antenna fields and endpoint ground truth. Ground truth is used for evaluation and does not enter receiver inference.
+The input directory contains a manifest, `scene.json`, `waveform.json`, `contract.json` and `inputs.json`. The manifest preserves the scene, noise, payload and control seeds. `inputs.json` identifies the first recording, its scene and split, and its duration. Geometry is written under `<geometry-root>/<split>/<scene_id>.npz`, with the summary in an adjacent `.json` file. Geometry contains bistatic path lengths, antenna fields and endpoint ground truth. Ground truth is used for evaluation and does not enter receiver inference.
 
 For a supplied scene outside this example, `geometry --assets selected_assets --scene scene.json --output geometry.npz` writes both the array file and a JSON summary. `prepare-geometry` processes the **first** exported scene. To regenerate an entire cohort, compute geometry for every scene and run `generate` for each episode ID in its manifest.
 
