@@ -4,6 +4,15 @@ This repository implements the receiver and simulator studied in *Early UAV Dete
 
 The receiver takes an aligned reference signal and a surveillance signal. It suppresses direct-signal leakage, computes correlations, searches candidate rates of Doppler change, and refines delay and Doppler estimates. The three selective configurations check at 0.6, 0.8 and 1 second. An alert at an early check can be updated or withdrawn at the final check. Statistical and neural models choose which rates to search. Detection itself uses the refined correlation score.
 
+## Requirements by task
+
+| Task | Requirements |
+|---|---|
+| Aggregate stored results, export metadata, compute geometry | Linux, Python 3.10, NumPy and SciPy. |
+| Generate NR waveforms | MATLAB with working 5G Toolbox waveform functions. |
+| Synthesize received samples from waveforms | CPU Python environment plus g++ with OpenMP. |
+| Run any receiver, including classical methods | NVIDIA CUDA GPU, PyTorch and Triton. |
+
 ## Start with the stored results
 
 These commands require a Git checkout, Linux and Python 3.10. They install the CPU dependencies and recompute detection and recorded timing statistics from the included outputs:

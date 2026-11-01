@@ -155,7 +155,11 @@ Inputs are `(20000,1792)` `complex64` correlations and `(200,1792)` `float32` re
 | `executed_rates` | Number of rates searched at this check, where reported. |
 | `final_gate_rejected` | Whether the final partial search ended with no alert. |
 
-Delay is excess bistatic echo delay relative to the aligned reference. Convert samples to seconds by dividing by `30.72e6`. Do not interpret estimates attached to a negative alert as detections. [Metric definitions](REPRODUCIBILITY.md#endpoint-definitions) explain how emitted events are scored against truth.
+Preparation and search traces (`shared_stages` and `executed_searches`) use the **recording** origin for `ready_s`, `start_s` and `finish_s`. Emitted updates and `decision_s` use the **attempt** origin. Attempt `i` starts at `i` seconds in a four-second recording, so add `i` to an attempt-relative time to compare it with a trace time. The attempt's `start` field is a 20 ms block index (`0`, `50`, `100` or `150`), not seconds. Internal stage index `j` selects `[0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]` seconds, while `k` is the requested rate-search budget. Hybrid integration uses its own one-second stage.
+
+Predictions describe the observation endpoint, after conversion from any internal midpoint estimate. Simulation truth labels are stored at the last sample of each 20 ms block, one sample before its boundary. Rejected or invalid results can use a score of `-1e30` as a negative sentinel. Only an emitted positive `alert` can be a detection, and correctness additionally requires comparison with truth.
+
+Delay is excess bistatic echo delay relative to the aligned reference. Convert samples to seconds by dividing by `30.72e6`. The Doppler sign follows `Doppler_Hz = -(2.190e9 / 30.72e6) × d(delay_samples)/dt`, so increasing excess delay has negative Doppler. Do not interpret estimates attached to a negative alert as detections. [Metric definitions](REPRODUCIBILITY.md#endpoint-definitions) explain how emitted events are scored against truth.
 
 ## Development
 

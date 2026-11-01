@@ -12,6 +12,8 @@ The repository supports three distinct operations: recomputing statistics from s
 
 The four exported quality parts contain 16, 52, 188 and 256 independent recordings. Together they give the 512-record quality population. Older false-alert recordings and unused extension samples are excluded from these endpoints. Timing is a separate contemporaneous panel, rather than a timing summary pooled from quality runs.
 
+A **scene** fixes the satellite/UAV trajectory, steering and waveform identity. A manifest **episode** is one recording, adding its radar cross section and noise seeds to that scene. A **split** is the manifest's grouping identifier. The full manifest contains every scene, episode and waveform entry. Exported `scene.json` and `waveform.json` are convenience copies of the first listed entries, not a replacement for the full cohort. Long retained IDs are opaque identifiers, not record counts.
+
 All receivers use a fixed library of nineteen NR waveforms with different cell identities and payload/control seeds. The reported variability is conditional on this library. Geometry, waveform identity, scene/noise seeds and recording grouping are retained in the input manifests. The scene assumes line-of-sight propagation, modeled leakage, acquired beams and supplied reference alignment. It does not establish performance under buildings, ground reflections or acquisition uncertainty.
 
 Export metadata with:
