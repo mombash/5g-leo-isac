@@ -1,0 +1,154 @@
+{
+  "passed": true,
+  "source_commits": {
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "source_scheduler_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443",
+  "cases_per_method": 1,
+  "duration_s": 1,
+  "methods": [
+    {
+      "method": "N5",
+      "events": 3,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 3,
+      "causality_verified": true,
+      "measured_available_s": [
+        0.7581829410046339,
+        0.96797593095107,
+        1.4901495819794945
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "S5",
+      "events": 3,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 3,
+      "causality_verified": true,
+      "measured_available_s": [
+        0.7498877919861116,
+        0.9636608349974267,
+        1.4885477460338734
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "C9",
+      "events": 3,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 3,
+      "causality_verified": true,
+      "measured_available_s": [
+        0.781309851037804,
+        1.0080325260059908,
+        1.4906836000154726
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "E27",
+      "events": 1,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 1,
+      "causality_verified": true,
+      "measured_available_s": [
+        1.4901941519929096
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "DS",
+      "events": 1,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 1,
+      "causality_verified": true,
+      "measured_available_s": [
+        1.2484875330119394
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "TS1",
+      "events": 1,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 1,
+      "causality_verified": true,
+      "measured_available_s": [
+        1.4903578159864992
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "TS2",
+      "events": 1,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 1,
+      "causality_verified": true,
+      "measured_available_s": [
+        1.2480169640039094
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 2
+    },
+    {
+      "method": "KT+LVD",
+      "events": 1,
+      "point_max_absolute_difference": 0.0,
+      "alerts_match": true,
+      "prepared_arrays_bitwise_equal": true,
+      "prep_stages": 5,
+      "searches": 1,
+      "causality_verified": true,
+      "measured_available_s": [
+        2.739796062000096
+      ],
+      "reference_causality_verified": true,
+      "search_workers": 1
+    }
+  ],
+  "input_array_sha256": {
+    "reference": "5819c73417e3e4689be651100f629f716088041b45625e346db3c2bab5eb129c",
+    "observation": "c353f3c5ae52a95058418547424de20bcc2b4d3a9da43f2720113d0b6eaddf87",
+    "alignment": "67042dfda5683aead81b6055d19c4dba238341f9dd82f49c0e7cc0c19c5f10d1"
+  },
+  "fixture": "Actual three-frame NR waveform repeated into a synthetic one-second direct-path/echo/noise input; zero supplied alignment.",
+  "frontend_and_scheduler_executed": true,
+  "truth_passed_to_receiver": false,
+  "elapsed_validation_s": 34.395255249983165,
+  "gpu": "NVIDIA A10-24Q",
+  "peak_allocated_bytes": 3432406528,
+  "limitations": [
+    "No matched performance/latency claim; per-run measured timestamps are not compared numerically.",
+    "The four-second default is source-extracted; this smoke runs the committed one-second adapter.",
+    "Host-resident digital sample pacing excludes disk/RF/ADC/acquisition/alignment estimation."
+  ]
+}

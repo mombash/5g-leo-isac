@@ -1,0 +1,37 @@
+{
+  "fixes": [
+    {
+      "id": "geometry-json-import",
+      "classification": "packaging dependency",
+      "initial_result": "Packaged full geometry failed with NameError at fingerprint serialization; original completed.",
+      "remedy": "Restore the original json module dependency in the clean extraction preamble.",
+      "current_result": "Geometry arrays and summary now match exactly on the registered scene."
+    },
+    {
+      "id": "PKG-A01",
+      "classification": "build metadata",
+      "remedy": "Pin supported setuptools75.8.0/wheel0.45.1 and use pyproject metadata as the single authority.",
+      "runtime_environment_changed": false
+    },
+    {
+      "id": "r2-kt-scheduler-policy",
+      "classification": "portable wrapper wiring",
+      "initial_result": "First paced reference check reached KT without the committed simple policy; KeyError before controller guard.",
+      "remedy": "Supply exact committed kind=simple/looks=[0]/k=53; no numerical or threshold change.",
+      "current_result": "All eight routes match; fresh installed warmup/paced execution passes."
+    },
+    {
+      "id": "r2-failed-worker-cleanup",
+      "classification": "exception cleanup",
+      "remedy": "On run/warmup failure, signal scheduler failure and close its owned worker pool. Confirmed failed validation process stopped.",
+      "successful_path_changed": false
+    },
+    {
+      "id": "r2-warmup-boundary",
+      "classification": "timing-boundary wiring",
+      "remedy": "Run committed campaign warm_backends before the measured origin; expose warmup source/input in outputs.",
+      "current_result": "Fresh installed eight-route execution passes with warmup_applied=true."
+    }
+  ],
+  "scientific_changes": false
+}

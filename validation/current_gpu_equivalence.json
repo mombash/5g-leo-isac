@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "source_commits": {
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "methods": [
+    {
+      "method": "N5",
+      "events": 3,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "S5",
+      "events": 3,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "C9",
+      "events": 3,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "E27",
+      "events": 1,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "DS",
+      "events": 1,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "TS1",
+      "events": 1,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "TS2",
+      "events": 1,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    },
+    {
+      "method": "KT+LVD",
+      "events": 1,
+      "outputs_match": true,
+      "max_absolute_point_difference": 0.0
+    }
+  ],
+  "input": {
+    "shape": [
+      20000,
+      1792
+    ],
+    "dtype": "complex64",
+    "fixture": "analytic band-limited moving echo, endpoint delay250.3samples/frequency220.23Hz/rate-15.4Hz_per_s, amplitude0.05"
+  },
+  "gpu": "NVIDIA A10-24Q",
+  "free_memory_before": [
+    22946709504,
+    25471352832
+  ],
+  "peak_allocated_bytes": 3127105536,
+  "elapsed_validation_s": 21.000428164959885,
+  "cases_per_method": 1,
+  "raw_data_generated": false,
+  "timing_valid": false,
+  "limitations": [
+    "One deterministic prepared input; not noisy detection-rate or production latency validation.",
+    "No sample-paced scheduler/frontend or MATLAB waveform generation is exercised here."
+  ]
+}

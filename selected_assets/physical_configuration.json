@@ -1,0 +1,279 @@
+{
+  "propagation": {
+    "delay_tolerance_s": 1e-10,
+    "endpoint_tolerance_m": 1e-07,
+    "extent_status": "3 km working extent accepted after bounded 3/4/5 km audit; inner geometry unchanged",
+    "field_relative_tolerance": 0.01,
+    "geometry_step_s": 0.01,
+    "map_half_extents_m": [
+      1000,
+      1500,
+      2000
+    ],
+    "map_power_tolerance_dB": 0.1,
+    "materials": [
+      "concrete",
+      "brick",
+      "glass"
+    ],
+    "metal_mount_material": "PEC",
+    "minimum_step_s": 1e-05,
+    "noise_samples": 50000,
+    "noise_seed": 81103,
+    "phase_convention": "exp(+jwt); path exp(-jkL)",
+    "phase_tolerance_rad": 0.01,
+    "relative_pruning_dB": null,
+    "tx_polarization_axis": [
+      0,
+      1,
+      0
+    ],
+    "uav_copolar_axis": [
+      0,
+      1,
+      0
+    ],
+    "uav_polarization_model": "rank-one reciprocal co-polar point scatterer; fixed RCS and zero scattering phase"
+  },
+  "receiver": {
+    "antenna_temperature_K": 290,
+    "aperture_efficiency": 0.6,
+    "azimuth_deg": [
+      0,
+      0,
+      90,
+      180,
+      270
+    ],
+    "beamformer_loss_dB": 1.5,
+    "calibration": "ideal-control",
+    "element_power_exponent": 1,
+    "elements_per_side": 12,
+    "elevation_deg": [
+      90,
+      20,
+      20,
+      20,
+      20
+    ],
+    "envelope_m": [
+      0.85,
+      0.85,
+      0.05
+    ],
+    "global_reference_beams": 1,
+    "mast_centre_m": [
+      0,
+      0,
+      19.1875
+    ],
+    "mast_size_m": [
+      0.15,
+      0.15,
+      2.375
+    ],
+    "names": [
+      "Zenith",
+      "North",
+      "East",
+      "South",
+      "West"
+    ],
+    "noise_figure_dB": 3,
+    "panel_centres_m": [
+      [
+        0,
+        0,
+        20.8
+      ],
+      [
+        0,
+        0.7,
+        20
+      ],
+      [
+        0.7,
+        0,
+        20
+      ],
+      [
+        0,
+        -0.7,
+        20
+      ],
+      [
+        -0.7,
+        0,
+        20
+      ]
+    ],
+    "reference_polarization_axis": [
+      0,
+      1,
+      0
+    ],
+    "roof_size_m": [
+      12,
+      12,
+      18
+    ],
+    "search_beams_per_panel": 3,
+    "spacing_m": 0.06844576666666667,
+    "steering_limit_deg": 55,
+    "taper_exponent": 0.6
+  },
+  "routes": {
+    "crossing_length_m": 800,
+    "crossing_start_xy_m": [
+      150,
+      -400
+    ],
+    "duration_hover_s": 30,
+    "hover_xy_m": [
+      150,
+      50
+    ],
+    "sample_interval_s": 0.05,
+    "speed_transition_length_m": 180,
+    "street_length_m": 900,
+    "street_start_xy_m": [
+      -450,
+      50
+    ],
+    "turn_end_xy_m": [
+      50,
+      350
+    ],
+    "turn_intersection_xy_m": [
+      50,
+      50
+    ],
+    "turn_radius_m": 8,
+    "turn_speed_mps": 4,
+    "turn_start_xy_m": [
+      -350,
+      50
+    ]
+  },
+  "satellite": {
+    "altitude_m": 600000,
+    "earth_radius_m": 6378137.0,
+    "earth_rotation_rad_s": 7.292115e-05,
+    "eirp_density_dBW_MHz": 34,
+    "epoch_label": "synthetic circular orbit; local equator, longitude zero",
+    "initial_azimuth_deg": 225,
+    "initial_elevation_deg": 45,
+    "mu_m3_s2": 398600441800000.0
+  },
+  "scene": {
+    "evaluation_radius_m": 500,
+    "families": [
+      "open",
+      "midrise",
+      "mixed"
+    ],
+    "footprint_range_m": [
+      20,
+      50
+    ],
+    "half_extent_m": 1500,
+    "high_fraction": 0.3,
+    "high_height_m": [
+      30,
+      60
+    ],
+    "low_height_m": [
+      10,
+      25
+    ],
+    "pitch_m": 100,
+    "seed": 190926,
+    "street_width_m": 24
+  },
+  "schema": "urban-propagation-v2",
+  "status": "Checkpoint B development: not authorized for detection campaign",
+  "uav": {
+    "clearance_m": 5,
+    "cruise_speeds_mps": [
+      5,
+      15
+    ],
+    "envelope_radius_m": 0.5,
+    "heights_m": [
+      25,
+      50
+    ],
+    "max_acceleration_mps2": 3,
+    "rcs_m2": 0.03
+  },
+  "visual": {
+    "angular_step_deg": 2,
+    "animation_stride": 40,
+    "cone_length_m": 2,
+    "coverage_min_elevation_deg": -10,
+    "vertical_exaggeration": 4
+  },
+  "waveform": {
+    "band": "n256",
+    "c_mps": 299792458.0,
+    "channel_bw_Hz": 20000000.0,
+    "clutter_enable": false,
+    "cp_first": 88,
+    "cp_other": 72,
+    "csirs_enable": false,
+    "cyclic_prefix": "normal",
+    "dl_band_Hz": [
+      2170000000.0,
+      2200000000.0
+    ],
+    "dmrs_additional_position": 0,
+    "dmrs_configuration_type": 1,
+    "dmrs_length": 1,
+    "dmrs_nscid": 0,
+    "dmrs_typeA_position": 2,
+    "duplex": "FDD",
+    "fc_Hz": 2190000000.0,
+    "frequency_range": "FR1",
+    "fs_Hz": 30720000.0,
+    "leakage": 0,
+    "n_cell_id": 11,
+    "n_rb": 51,
+    "n_rb_15kHz_in_20MHz": 106,
+    "n_rb_ssb_carrier": 102,
+    "n_sc_occupied": 612,
+    "n_size_bwp": 51,
+    "n_slot_frame": 20,
+    "n_slot_subframe": 2,
+    "n_start_bwp": 0,
+    "n_start_grid": 0,
+    "n_symb_slot": 14,
+    "nfft": 1024,
+    "occupied_bw_Hz": 18360000.0,
+    "one_bwp": true,
+    "pdsch_mapping_type": "A",
+    "pdsch_modulation": "QPSK",
+    "pdsch_symbol_allocation": [
+      0,
+      14
+    ],
+    "ptrs_enable": false,
+    "rnti": 1,
+    "samples_per_frame": 307200,
+    "samples_per_slot": 15360,
+    "scs_data_kHz": 30,
+    "scs_ssb_kHz": 15,
+    "ssb_block_pattern": "Case A",
+    "ssb_n_rb_15kHz": 20,
+    "ssb_ncrb": 41,
+    "ssb_period_ms": 20,
+    "ssb_transmitted_blocks": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "t_frame_s": 0.01,
+    "t_subframe_s": 0.001,
+    "windowing_percent": 0
+  }
+}

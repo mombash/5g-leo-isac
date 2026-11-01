@@ -1,0 +1,852 @@
+{
+  "current_working_tree_snapshot_sha256": "74d685d6bd035144c6aaf67afc9f900c2247323090c5162c6b13517136668cc5",
+  "source_commits": {
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2",
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d"
+  },
+  "definitions": [
+    {
+      "module": "scenes",
+      "name": "seed",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_spec.py",
+      "source_sha256": "91cccc8ff08ccc11392fb988392d29a94139ee6c436e2521d5ebabcbe1eb14d0",
+      "line": 23,
+      "retained_members": null,
+      "runtime_ast_sha256": "403ec17b9c3a57c654dbcef0ff441656710a540102f63553045ae33f82b3ae60"
+    },
+    {
+      "module": "scenes",
+      "name": "make_scene",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_spec.py",
+      "source_sha256": "91cccc8ff08ccc11392fb988392d29a94139ee6c436e2521d5ebabcbe1eb14d0",
+      "line": 27,
+      "retained_members": null,
+      "runtime_ast_sha256": "d88a9adcbd6f08fd3c493d91b705b10ab900ffce6e5b68888439635502aaabb9"
+    },
+    {
+      "module": "noise",
+      "name": "noise",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_data.py",
+      "source_sha256": "fc0c637a7b880c0922668fde79def6d5a723817f0d654c7451e8b695f7325bfd",
+      "line": 10,
+      "retained_members": null,
+      "runtime_ast_sha256": "7f070454bae87c56a8396a5eba79491ed87cc39c9dc91b283ec1bf05807f6242"
+    },
+    {
+      "module": "simulation_data",
+      "name": "EpisodeData",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_data.py",
+      "source_sha256": "fc0c637a7b880c0922668fde79def6d5a723817f0d654c7451e8b695f7325bfd",
+      "line": 19,
+      "retained_members": null,
+      "runtime_ast_sha256": "c0a93421fbde300156052aba1f97faf264bd41718f2eee6002b444d0b181f3b1"
+    },
+    {
+      "module": "geometry",
+      "name": "unit",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 9,
+      "retained_members": null,
+      "runtime_ast_sha256": "8abd5dd622112b3868ceac469df2130e5cc43d0db24a08fa0ec64b27cb552da3"
+    },
+    {
+      "module": "geometry",
+      "name": "basis",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 12,
+      "retained_members": null,
+      "runtime_ast_sha256": "d606bf3877cea8321b281cddc76890dc98b3792e3ad6d3052a30099835ce0624"
+    },
+    {
+      "module": "geometry",
+      "name": "satellite",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 21,
+      "retained_members": null,
+      "runtime_ast_sha256": "8b64978d6a62c22cc17e2a170c985aebcd5efd0f3e2cce9ee918e9ecc6925f5d"
+    },
+    {
+      "module": "geometry",
+      "name": "target",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 40,
+      "retained_members": null,
+      "runtime_ast_sha256": "08cfaf6d043dfb67919e7ec530e538476538c1ae5dfb6f03c46a448c10c695cb"
+    },
+    {
+      "module": "geometry",
+      "name": "panel",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 48,
+      "retained_members": null,
+      "runtime_ast_sha256": "522f3fe7558e9dbc41933274eeec43ae75eb62c26ccd0b263aea736d3c2b1c70"
+    },
+    {
+      "module": "geometry",
+      "name": "response",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 59,
+      "retained_members": null,
+      "runtime_ast_sha256": "7952e368cb5d9494897f4f4a03f73a02b489b786389a83fe976bf8aac0bddc71"
+    },
+    {
+      "module": "geometry",
+      "name": "geometry",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_physics.py",
+      "source_sha256": "a45b148af9651bfdc7961ab06c9bee78f6982b06b7f2d882107b5ba48edbf105",
+      "line": 67,
+      "retained_members": null,
+      "runtime_ast_sha256": "cbf24687e4696c737a42e3934222bb0ba750862a42a70d496d1fb8b74edcbc9d"
+    },
+    {
+      "module": "frontend",
+      "name": "correlate",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_frontend.py",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657",
+      "line": 45,
+      "retained_members": null,
+      "runtime_ast_sha256": "fa401e121165ff36eb3e3dee88557252be53b0486ced1062386f8ca707453956"
+    },
+    {
+      "module": "frontend",
+      "name": "variances5",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_frontend.py",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657",
+      "line": 53,
+      "retained_members": null,
+      "runtime_ast_sha256": "e5b45bd3010fadc15bf20ab22ac56bb8f0242fe0af779f2f60f2c820708ed74b"
+    },
+    {
+      "module": "frontend",
+      "name": "complex_maps",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_frontend.py",
+      "source_sha256": "f0b062a3861022660eadf10450b92ec2abdef078f622c5d65a8836a53d962657",
+      "line": 60,
+      "retained_members": null,
+      "runtime_ast_sha256": "b1a62877da9474e263195169c724fe757b7ddd575861d76bc7873b887aac3912"
+    },
+    {
+      "module": "cancellation",
+      "name": "_template",
+      "source": "urban_varied_feasibility_2026-10-11/hybrid_cancel.py",
+      "source_sha256": "7932df5afc951193cf434f05a4cd4ea1138073d6a70de64c3db5b740b56ad730",
+      "line": 18,
+      "retained_members": null,
+      "runtime_ast_sha256": "9bd0d125ad14c81a14abd2608c0f647c7c3268819309e0018b19c59b19412796"
+    },
+    {
+      "module": "cancellation",
+      "name": "cancel_sinc",
+      "source": "urban_varied_feasibility_2026-10-11/hybrid_cancel.py",
+      "source_sha256": "7932df5afc951193cf434f05a4cd4ea1138073d6a70de64c3db5b740b56ad730",
+      "line": 39,
+      "retained_members": null,
+      "runtime_ast_sha256": "a4b0517be1d6e60c21f42006886dc949826a0720c4c854e2875fbb6e82de3725"
+    },
+    {
+      "module": "warp_table",
+      "name": "interpolation_table",
+      "source": "urban_prefix_feasibility_2026-10-10/gpu_motion_warp_probe.py",
+      "source_sha256": "b6c4632ba965e7589d4f91247f8db6987429f18436c2f84a663a81bf6902e3fa",
+      "line": 16,
+      "retained_members": null,
+      "runtime_ast_sha256": "b0287e3b3419f43150103a52de447f07ca2a3f58b5a0685198d85cec3a35a862"
+    },
+    {
+      "module": "warp",
+      "name": "warp_kernel",
+      "source": "urban_prefix_feasibility_2026-10-10/gpu_motion_warp_triton.py",
+      "source_sha256": "9d3653d27596002271ef578779de2f7ac476b25d0cbaab8910361ab9225bac7d",
+      "line": 19,
+      "retained_members": null,
+      "runtime_ast_sha256": "51bcbe6483de82174f9a8563fe0fce88f0e177464884d31dbe9bb2bb7283fa2f"
+    },
+    {
+      "module": "warp",
+      "name": "gpu_warp",
+      "source": "urban_prefix_feasibility_2026-10-10/gpu_motion_warp_triton.py",
+      "source_sha256": "9d3653d27596002271ef578779de2f7ac476b25d0cbaab8910361ab9225bac7d",
+      "line": 48,
+      "retained_members": null,
+      "runtime_ast_sha256": "2641a97eeb797cb74fb3b063efa46abf2536b2f032329c94175a372242f9c94c"
+    },
+    {
+      "module": "decimation",
+      "name": "decimate_gpu",
+      "source": "urban_prefix_feasibility_2026-10-10/gpu_decimate_probe.py",
+      "source_sha256": "0ef09c209028f22e18c87eaba752797380d9386a3b9011bf171b8ff84b293a3c",
+      "line": 15,
+      "retained_members": null,
+      "runtime_ast_sha256": "ae893a874a551874f9cb9b29b3a57c582f2bf548f5a7e794718140a254ea49d3"
+    },
+    {
+      "module": "coherent",
+      "name": "decode",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_classical.py",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a",
+      "line": 29,
+      "retained_members": null,
+      "runtime_ast_sha256": "c3745f221761874a6c6579903f74f9768f31c37c769e3a6b0938e9916e911701"
+    },
+    {
+      "module": "coherent",
+      "name": "ClassicalEpisode",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_classical.py",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a",
+      "line": 55,
+      "retained_members": [
+        "window_fft"
+      ],
+      "runtime_ast_sha256": "73349ba86c1e5f4902ce84d0a976bd0138adc85c7e9f8f86f1d3df2a0e43ef74"
+    },
+    {
+      "module": "coherent",
+      "name": "CoherentEpisode",
+      "source": "urban_varied_feasibility_2026-10-11/sliding_classical.py",
+      "source_sha256": "9bf59f7e88648aceaf199b1beb109a64d524075e42d744e7c68c14213205099a",
+      "line": 144,
+      "retained_members": null,
+      "runtime_ast_sha256": "0bc2a5e2ef7c4845984512cdb8bd434f325a798d7243f30a642b9f51a892152c"
+    },
+    {
+      "module": "native",
+      "name": "native_rows",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_batched_native_2026_10_22.py",
+      "source_sha256": "a77d19c411fe729f496c5aaf94c328f8516e873affd7a9034c7d80eadc9b213b",
+      "line": 24,
+      "retained_members": null,
+      "runtime_ast_sha256": "250c1e391e0c20d1887add57ec3e734556e470991ca93b0e99d88a00c0a7701b"
+    },
+    {
+      "module": "verifier",
+      "name": "_sample",
+      "source": "urban_varied_feasibility_2026-10-11/latency_verifier.py",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3",
+      "line": 17,
+      "retained_members": null,
+      "runtime_ast_sha256": "8474349fb71c4f1e1beb32808590a6e5ae7e8adb741d75a4102f447b9148dbd8"
+    },
+    {
+      "module": "verifier",
+      "name": "LocalVerifier",
+      "source": "urban_varied_feasibility_2026-10-11/latency_verifier.py",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3",
+      "line": 50,
+      "retained_members": null,
+      "runtime_ast_sha256": "7a6aeccbf0762a293c564ba477709c93599d521e565aa5055ee2126999d52faf"
+    },
+    {
+      "module": "verifier",
+      "name": "cpu_scores",
+      "source": "urban_varied_feasibility_2026-10-11/latency_verifier.py",
+      "source_sha256": "e7e4a5ee8403930cf8909f04d61facef90de5944cf41750e7942d7fc58041ce3",
+      "line": 104,
+      "retained_members": null,
+      "runtime_ast_sha256": "d061faf5ae76dbf60c8471554ef0fcc6480b0d8840bc8e7bb0a8d683746fd132"
+    },
+    {
+      "module": "refinement",
+      "name": "endpoint",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_2026_10_22.py",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec",
+      "line": 15,
+      "retained_members": null,
+      "runtime_ast_sha256": "c3af973852a6f11472122aec626b306a45ed859578b0cbbe87eecb119792f0cb"
+    },
+    {
+      "module": "refinement",
+      "name": "midpoint",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_2026_10_22.py",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec",
+      "line": 17,
+      "retained_members": null,
+      "runtime_ast_sha256": "1f3e4900269c6a30c343a1204acbebf2f78508a78820bcdb6f5b01f0c8197c1c"
+    },
+    {
+      "module": "refinement",
+      "name": "phase_traces",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_2026_10_22.py",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec",
+      "line": 21,
+      "retained_members": null,
+      "runtime_ast_sha256": "acfa74ba757c3c503b4186531acb5781def0ead1994edea00434166dbe6362c4"
+    },
+    {
+      "module": "refinement",
+      "name": "physical_scores",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_2026_10_22.py",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec",
+      "line": 28,
+      "retained_members": null,
+      "runtime_ast_sha256": "2bd320305d603d02872d33146f6af4eb964375e13482c854c15c8181ba02a7c6"
+    },
+    {
+      "module": "refinement",
+      "name": "classical_refine",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_2026_10_22.py",
+      "source_sha256": "44b0ab571bb85615e1d17b050ba859f9e728aacec5b56e51a239c9dda6b5f8ec",
+      "line": 33,
+      "retained_members": null,
+      "runtime_ast_sha256": "f96e221e4b98c9ca751d5058ff950c09c3acc2ef331d4777cbe0c47f6eee04ca"
+    },
+    {
+      "module": "physical_features",
+      "name": "physical_features",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_risk_2026_10_22.py",
+      "source_sha256": "fdbc62788839ec7343cef9ee310a83ff5de3c26589e368642259f5b07d5cb166",
+      "line": 35,
+      "retained_members": null,
+      "runtime_ast_sha256": "9cfe3d9b641db1d2a712e76b291ec167f114cd5e46b10aef3913c566ebe19877"
+    },
+    {
+      "module": "set_features",
+      "name": "observed_features",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_set_risk_2026_10_22.py",
+      "source_sha256": "99daaea5e9064d23b9ac9627742df4d4e35ad6d481a13d389d1508613b16a8ba",
+      "line": 21,
+      "retained_members": null,
+      "runtime_ast_sha256": "f326e4b6d08e6d0688d5c6bf748924a1245d4ac101b1c5ce859f61b1a5f6e9e0"
+    },
+    {
+      "module": "phase_features",
+      "name": "midpoint_np",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_train_2026_10_22.py",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92",
+      "line": 29,
+      "retained_members": null,
+      "runtime_ast_sha256": "f6cf54fe1388d227f615a49a68925b90db24c5e7d6d3d878d28db2bc10b9e98a"
+    },
+    {
+      "module": "phase_features",
+      "name": "endpoint_np",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_train_2026_10_22.py",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92",
+      "line": 31,
+      "retained_members": null,
+      "runtime_ast_sha256": "f14ab6df6fe1f577a0312fa2ca70d9fb2b8be0cd575d458b4cbb30a921032d18"
+    },
+    {
+      "module": "phase_features",
+      "name": "observed_phase_features",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_phase_train_2026_10_22.py",
+      "source_sha256": "334776d9e149a8aba4e8a0f1fb8c40db9af9cc9cbecb3afb131f9f37b8075c92",
+      "line": 34,
+      "retained_members": null,
+      "runtime_ast_sha256": "0ab4c8eb7e5306e51033d1c5b2c63d135f60972b374309114e5d47f429506ed4"
+    },
+    {
+      "module": "innovation",
+      "name": "innovation",
+      "source": "urban_varied_feasibility_2026-10-11/adaptive_campaign_temporal_refined_2026_10_22.py",
+      "source_sha256": "fe262148b2c9b7f16863cf7697b8a28846a64ff7c3b9706990e2a122bed684d1",
+      "line": 19,
+      "retained_members": null,
+      "runtime_ast_sha256": "54e27e947ee156a4c7775c692b2d651c29987b7d999c78701139737e2127ef35"
+    },
+    {
+      "module": "evidence",
+      "name": "Evidence",
+      "source": "urban_varied_feasibility_2026-10-11/paired_outcome_runtime_2026_10_24.py",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d",
+      "line": 111,
+      "retained_members": null,
+      "runtime_ast_sha256": "5e5f5914e13060d2c3b67321b46c20fbc08f7948e42bf697452cd77bb2f748e6"
+    },
+    {
+      "module": "model_core",
+      "name": "normalize",
+      "source": "urban_varied_feasibility_2026-10-11/systematic_neural_capacity_2026_10_23.py",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355",
+      "line": 112,
+      "retained_members": null,
+      "runtime_ast_sha256": "372efb9138b2d67baa226ddb09f4e01c9688009d9b54fdbb3453d5e31de9dac0"
+    },
+    {
+      "module": "model_core",
+      "name": "CapacityNet",
+      "source": "urban_varied_feasibility_2026-10-11/systematic_neural_capacity_2026_10_23.py",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355",
+      "line": 120,
+      "retained_members": null,
+      "runtime_ast_sha256": "b3fa9afd57bced246b8f390bbf363d42f641045fc6d32f3976c0919f88503ba0"
+    },
+    {
+      "module": "model_core",
+      "name": "flat",
+      "source": "urban_varied_feasibility_2026-10-11/systematic_neural_capacity_2026_10_23.py",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355",
+      "line": 175,
+      "retained_members": null,
+      "runtime_ast_sha256": "27db2873ac2a8d49c71511e552474d31b7216ebdf95f9b95e84ac8eaaec9a7cb"
+    },
+    {
+      "module": "model_core",
+      "name": "cuda_values",
+      "source": "urban_varied_feasibility_2026-10-11/systematic_neural_capacity_2026_10_23.py",
+      "source_sha256": "7d8c5e0ee24b5cbd51133cd7991816985a10d9f49f6c1fcb035978cc09e30355",
+      "line": 155,
+      "retained_members": null,
+      "runtime_ast_sha256": "a6920ca0d87956141f6db938950217547ef431e4d81df5c5b834f99dfbbf01b3"
+    },
+    {
+      "module": "model_static",
+      "name": "StaticNet",
+      "source": "urban_varied_feasibility_2026-10-11/paired_outcome_runtime_2026_10_24.py",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d",
+      "line": 30,
+      "retained_members": null,
+      "runtime_ast_sha256": "bd7201147c00b19d823bbb232601e05611a4f3580e61a722716059562f770bcd"
+    },
+    {
+      "module": "model_static",
+      "name": "Affine",
+      "source": "urban_varied_feasibility_2026-10-11/paired_outcome_runtime_2026_10_24.py",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d",
+      "line": 47,
+      "retained_members": null,
+      "runtime_ast_sha256": "98a3d9391e1032c46b3ff3b18c3a158b73d62dc4fe7c53f9faa8c0338897589e"
+    },
+    {
+      "module": "model_static",
+      "name": "Captured",
+      "source": "urban_varied_feasibility_2026-10-11/paired_outcome_runtime_2026_10_24.py",
+      "source_sha256": "e7a1d746e4392b6c96e30897d13ee238f0898509d7e07a331783d5741043a38d",
+      "line": 53,
+      "retained_members": null,
+      "runtime_ast_sha256": "a09a176b59e5476731913a64ebf58b9385fb79970318db987a9bf28e4503e43b"
+    },
+    {
+      "module": "measurements",
+      "name": "Measurements",
+      "source": "urban_varied_feasibility_2026-10-11/sequential_rate_check_2026_10_24.py",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee",
+      "line": 43,
+      "retained_members": [
+        "initial",
+        "state"
+      ],
+      "runtime_ast_sha256": "dbec5ca2d18e3d199badeb9a168f9ceef868b60acd406fd08a47946bc4a418a4"
+    },
+    {
+      "module": "two_look",
+      "name": "Policy",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 16,
+      "retained_members": null,
+      "runtime_ast_sha256": "4baa5867d5312c7eb24672bdf688400ae9b3da78645c8f69993f657aac82da08"
+    },
+    {
+      "module": "two_look",
+      "name": "first_decisions",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 36,
+      "retained_members": null,
+      "runtime_ast_sha256": "f834e99f74a626fdf9834314991ab98ea939e18ae1dcc09081eae3b77644b71e"
+    },
+    {
+      "module": "two_look",
+      "name": "cell_decisions",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 46,
+      "retained_members": null,
+      "runtime_ast_sha256": "49da318f45eba40875966d91e14a21ca59191f9edde46e09728dc7d00fec57ee"
+    },
+    {
+      "module": "two_look",
+      "name": "propagate",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 62,
+      "retained_members": null,
+      "runtime_ast_sha256": "d815cbfbc1c81225e63a4fb5ae355259373b69073d64762e965b4a13635d321d"
+    },
+    {
+      "module": "two_look",
+      "name": "normalized_energy",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 74,
+      "retained_members": null,
+      "runtime_ast_sha256": "a0534260712029753d66caf10c09dfe46a8ded97cead5565bb02d2c7a1c4cf21"
+    },
+    {
+      "module": "two_look",
+      "name": "run",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 82,
+      "retained_members": null,
+      "runtime_ast_sha256": "0345b00950b68ce8843176bc9f5cf088ebf1ed9c43db3a923baf5e146aa255b3"
+    },
+    {
+      "module": "two_look",
+      "name": "gpu_callbacks",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_source_verified.py",
+      "source_sha256": "a1771127ed5669fc51cd10f498c41b7f55c52ff7f3b1b692d18f46bd3730342c",
+      "line": 132,
+      "retained_members": null,
+      "runtime_ast_sha256": "d770b2670744f097df66b2a95b9042d105a1f92ee6148e68e9eee8e40a4a1cc5"
+    },
+    {
+      "module": "ts_backend",
+      "name": "Backend",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_streaming.py",
+      "source_sha256": "8cae1095db740ea66babfcf985195941ff2a42a34f39b6e31d311eb97ec0ee45",
+      "line": 43,
+      "retained_members": null,
+      "runtime_ast_sha256": "3ef4169814e7eaad07975897355dd8419b64293e0aa871afb9e58062e092d303"
+    },
+    {
+      "module": "dual_scale",
+      "name": "approximation_bound",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 20,
+      "retained_members": null,
+      "runtime_ast_sha256": "59ac679a9125bd69d209800211757677cd248fbc6fab30148e499c11fe1002a8"
+    },
+    {
+      "module": "dual_scale",
+      "name": "groups",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 30,
+      "retained_members": null,
+      "runtime_ast_sha256": "3ce39b2f7eb93c1c238cfd0a48d80907b28a545ce9f9e6bf965a912543b13363"
+    },
+    {
+      "module": "dual_scale",
+      "name": "endpoint",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 43,
+      "retained_members": null,
+      "runtime_ast_sha256": "6af9f7542db595e0d98bbea8d89cbbb4de232f71546796e613bdd38cbd4a5dc5"
+    },
+    {
+      "module": "dual_scale",
+      "name": "dual_scale_rows",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 48,
+      "retained_members": null,
+      "runtime_ast_sha256": "cc5fd964057b6a596c4b32921579b6e3c1455049dc85e654dbfc41dce22776b1"
+    },
+    {
+      "module": "dual_scale",
+      "name": "numpy_search",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 101,
+      "retained_members": null,
+      "runtime_ast_sha256": "f71e7bfc579f9916a41bd67ea4af2c9babef67841e778cd8c8856c996eea2ce0"
+    },
+    {
+      "module": "dual_scale",
+      "name": "confirm_rows",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27.py",
+      "source_sha256": "1a48cdfe609f671abc985fa733d87e1b3ac7d7dda4d0238b507543cb8ea8c8b4",
+      "line": 125,
+      "retained_members": null,
+      "runtime_ast_sha256": "89c15d67e69b17ef9514c8313b2cf1dd9a8325feacc5ff064b41fdbd106eab1a"
+    },
+    {
+      "module": "kt_product",
+      "name": "product_kernel",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_gpu_2026_10_27.py",
+      "source_sha256": "aa35e7b150950f84450ba2017d2a30b951cab373beaa56f74fee8643aa567db7",
+      "line": 7,
+      "retained_members": null,
+      "runtime_ast_sha256": "f93a42eda59467ca2efdfcdc16b3badedc43394574b0f249e6eb9d64b96361fe"
+    },
+    {
+      "module": "kt_product",
+      "name": "product",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_gpu_2026_10_27.py",
+      "source_sha256": "aa35e7b150950f84450ba2017d2a30b951cab373beaa56f74fee8643aa567db7",
+      "line": 21,
+      "retained_members": null,
+      "runtime_ast_sha256": "870ba3b54c429c89813206d67af10b4ec4af676fd8ed20e87509347a7f888d4e"
+    },
+    {
+      "module": "kt_lvd",
+      "name": "interpolate_fft",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_2026_10_27.py",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "line": 31,
+      "retained_members": null,
+      "runtime_ast_sha256": "63ecfc993aadd6970c64cf5cec718f66ed4bf663336b7d8186c77d68d2a08eb4"
+    },
+    {
+      "module": "kt_lvd",
+      "name": "coordinates",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_2026_10_27.py",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "line": 44,
+      "retained_members": null,
+      "runtime_ast_sha256": "c0df46482f2fc0d17a0eda8eed34ae2d5e7056ae523fed06ca6fa77fc3abeb37"
+    },
+    {
+      "module": "kt_lvd",
+      "name": "support_plan",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_2026_10_27.py",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "line": 58,
+      "retained_members": null,
+      "runtime_ast_sha256": "d1d071ab28fd6911946919cf88f66825b30e79a14af3505d03c7b82549422503"
+    },
+    {
+      "module": "kt_lvd",
+      "name": "lvd",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_2026_10_27.py",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "line": 75,
+      "retained_members": null,
+      "runtime_ast_sha256": "4f015eefcbbd20b6aa34a2a25f84095236b8055df5b246d5d91cf12b9bcbe80e"
+    },
+    {
+      "module": "kt_lvd",
+      "name": "infer",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_2026_10_27.py",
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "line": 133,
+      "retained_members": null,
+      "runtime_ast_sha256": "1ec43f2b9678ee11a14913bff3cd7d6b0daa5c59cb24d95c2870e2636b50e255"
+    },
+    {
+      "module": "gate",
+      "name": "feature",
+      "source": "urban_varied_feasibility_2026-10-11/empty_final_15_gate_timing_2026_10_27.py",
+      "source_sha256": "4fc347e4c4a85eec237c2c809221c8aaa28b5c6b4723ac87081a5ffe5b78ca06",
+      "line": 12,
+      "retained_members": null,
+      "runtime_ast_sha256": "ec1824cac7823d0b2f6981eb93f16606cd21353e7d0a51ffc2e0d27894819007"
+    },
+    {
+      "module": "gate",
+      "name": "run",
+      "source": "urban_varied_feasibility_2026-10-11/empty_final_15_gate_timing_2026_10_27.py",
+      "source_sha256": "4fc347e4c4a85eec237c2c809221c8aaa28b5c6b4723ac87081a5ffe5b78ca06",
+      "line": 18,
+      "retained_members": null,
+      "runtime_ast_sha256": "2e45ce622042865096dd2e0afdeb479c94c68da8848bba65cfe9aef7a2411b79"
+    },
+    {
+      "module": "base_backend",
+      "name": "Backend",
+      "source": "urban_varied_feasibility_2026-10-11/stripped_streaming_2026_10_26.py",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443",
+      "line": 64,
+      "retained_members": [
+        "ids",
+        "stage"
+      ],
+      "runtime_ast_sha256": "29415c2f868ab19c4d40f0a870b7ce744f81d20171f39a63b0b770aac7f885ec"
+    },
+    {
+      "module": "final_backend",
+      "name": "FinalGateBackend",
+      "source": "urban_varied_feasibility_2026-10-11/empty_final_gate_backend_2026_10_27.py",
+      "source_sha256": "ae7b1089c8a6b4b9fe36e46e06483629aa2ca938b260123297603cd2220ccec5",
+      "line": 13,
+      "retained_members": null,
+      "runtime_ast_sha256": "129fcc6739aa0f534281c07bdfe625ae43ffc1722b6ababee47abf356aa430b6"
+    },
+    {
+      "module": "reader_core",
+      "name": "vector",
+      "source": "urban_varied_feasibility_2026-10-11/sequential_rate_check_2026_10_24.py",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee",
+      "line": 189,
+      "retained_members": null,
+      "runtime_ast_sha256": "be6b6a5c7ee26f598928dde39c03fd2f82a795c01e8b00266b798f77fee7c7a2"
+    },
+    {
+      "module": "reader_core",
+      "name": "Reader",
+      "source": "urban_varied_feasibility_2026-10-11/sequential_rate_check_2026_10_24.py",
+      "source_sha256": "c394ded6c94dc2709503197c0e6ec2cb605c92341f9309b4a757f82793f3d9ee",
+      "line": 307,
+      "retained_members": null,
+      "runtime_ast_sha256": "033719d5f0b8b6ad64a1662beb877565e6d26da28dcdc04e659157f963fafdc5"
+    },
+    {
+      "module": "query_reader",
+      "name": "FastReader",
+      "source": "urban_varied_feasibility_2026-10-11/sequential_rate_actual_2026_10_24.py",
+      "source_sha256": "0a24977653e0c63e83101cb76d7f505f9a13881a75bfaabd5b2b52d36df35224",
+      "line": 28,
+      "retained_members": null,
+      "runtime_ast_sha256": "904a38250991350c39836d6da53d8f71e7f56b19b962ac14410bd6097328e869"
+    },
+    {
+      "module": "query_stage",
+      "name": "Backend",
+      "source": "urban_varied_feasibility_2026-10-11/current_sequential_query_2026_10_27.py",
+      "source_sha256": "3accccd7aa3467eccbb263442a7b81c84abb1775e16afcbd0115c06f24c39496",
+      "line": 59,
+      "retained_members": null,
+      "runtime_ast_sha256": "7fb6fc882fc318f018cb50437883e152cb71ae5a9aa50ca663ed17b9769abf88"
+    },
+    {
+      "module": "query_stage",
+      "name": "looks",
+      "source": "urban_varied_feasibility_2026-10-11/current_sequential_query_2026_10_27.py",
+      "source_sha256": "3accccd7aa3467eccbb263442a7b81c84abb1775e16afcbd0115c06f24c39496",
+      "line": 40,
+      "retained_members": null,
+      "runtime_ast_sha256": "f1d6e0a00203785e27542d43e0b424193bb6bc1ba17e7f96eb0d025251b4c673"
+    },
+    {
+      "module": "scheduler",
+      "name": "stream_resources",
+      "source": "urban_varied_feasibility_2026-10-11/stripped_streaming_2026_10_26.py",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443",
+      "line": 86,
+      "retained_members": null,
+      "runtime_ast_sha256": "df2fe33c79780cbdd055cc0e2c265b0e1207a3ba86943d9b5264006f5d561a65"
+    },
+    {
+      "module": "scheduler",
+      "name": "StreamingRecord",
+      "source": "urban_varied_feasibility_2026-10-11/stripped_streaming_2026_10_26.py",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443",
+      "line": 91,
+      "retained_members": null,
+      "runtime_ast_sha256": "3f3fe4590d17e0cefad16ffe9287fa972892f37bc62b436bffcd84786386ea8e"
+    },
+    {
+      "module": "kt_scheduler",
+      "name": "StreamingRecord",
+      "source": "urban_varied_feasibility_2026-10-11/stripped_streaming_2026_10_26.py",
+      "source_sha256": "e1b59ae2ebbf27af91f9aea971ffd1cab3d398856976096059c2f5b32edfe443",
+      "line": 91,
+      "retained_members": null,
+      "runtime_ast_sha256": "3f3fe4590d17e0cefad16ffe9287fa972892f37bc62b436bffcd84786386ea8e"
+    },
+    {
+      "module": "ts_scheduler",
+      "name": "StreamingRecord",
+      "source": "urban_varied_feasibility_2026-10-11/literature_two_step_2026_10_27_streaming.py",
+      "source_sha256": "8cae1095db740ea66babfcf985195941ff2a42a34f39b6e31d311eb97ec0ee45",
+      "line": 66,
+      "retained_members": null,
+      "runtime_ast_sha256": "dae265249bb9aebb1b0b75100614694f90e7df097ff4a960641594b28fead82b"
+    },
+    {
+      "module": "ds_backend",
+      "name": "StreamingBackend",
+      "source": "urban_varied_feasibility_2026-10-11/literature_dual_scale_2026_10_27_runtime.py",
+      "source_sha256": "67790af7d82ced70ba1c5fa9c430237937d82e1379c1eab72dd3d7e17a2efb1b",
+      "line": 95,
+      "retained_members": null,
+      "runtime_ast_sha256": "ed0c4ee780450d18ff5680a37a24f11576aa27b16a35965a739ebca6d620000c"
+    },
+    {
+      "module": "kt_backend",
+      "name": "Backend",
+      "source": "urban_varied_feasibility_2026-10-11/literature_kt_lvd_support_timing_2026_10_27.py",
+      "source_sha256": "05760fc944e850536592d24cd5cf2b64f1c45fd1b96d0afd4b6338d4e9fa3b24",
+      "line": 14,
+      "retained_members": null,
+      "runtime_ast_sha256": "620daf33bdae8652ff7888c83ca7bb0ff7c2b0f1772f5ec095fb384535105f51"
+    },
+    {
+      "module": "scoring",
+      "name": "score_emissions",
+      "source_repository": "campaign",
+      "source": "consolidated_metrics_2026_10_27_v2.py",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85",
+      "runtime_ast_sha256": "6ba321a6705b6a6397a62517d91e4c827e3a71f8260df7fa9f7a0f5574286302"
+    },
+    {
+      "module": "scoring",
+      "name": "events_from_attempt",
+      "source_repository": "campaign",
+      "source": "consolidated_metrics_2026_10_27_v2.py",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85",
+      "runtime_ast_sha256": "9a668fa421b0573723ca959ff0d0117d9fc780c01039de8f0cefad35d9c2a81d"
+    },
+    {
+      "module": "scoring",
+      "name": "mixture_time",
+      "source_repository": "campaign",
+      "source": "consolidated_metrics_2026_10_27_v2.py",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85",
+      "runtime_ast_sha256": "cbb08fa83b29bfb2abda0025c994f7ce828afa5a0674db75234e0e40164860b6"
+    },
+    {
+      "module": "scoring",
+      "name": "standardized_metrics",
+      "source_repository": "campaign",
+      "source": "consolidated_metrics_2026_10_27_v2.py",
+      "source_sha256": "8cc45e827927e851dd7526d483cb44099a79d6c9f23af1e4ed046d27aaee1d85",
+      "runtime_ast_sha256": "5c735e0fcda1f87670b7c03b331c97e190631972e84836ceef8dbd581525a502"
+    },
+    {
+      "module": "numerics",
+      "name": "float32_up",
+      "source_repository": "campaign",
+      "source": "campaign_calibration.py",
+      "source_sha256": "5b962157cbe59ec787a7a2c2a5deeff69972c3930385da474d97a75a110b56a8",
+      "runtime_ast_sha256": "ccfd80a5296403792db4cf158e26b138a8b3092623949277bca44a3d4e3079c9"
+    },
+    {
+      "module": "duration_adapters",
+      "name": "ShortData",
+      "source_repository": "campaign",
+      "source": "benchmark_short_empty.py",
+      "source_sha256": "57a908963390134ade9d5edf1d39f228a3f6c98bd6e3331a52722f4eb12e9724",
+      "runtime_ast_sha256": "6d63a024e42897609db4453fd4317010530e604d406992e695fb6813b0ee511f"
+    },
+    {
+      "module": "duration_adapters",
+      "name": "ShortScheduler",
+      "source_repository": "campaign",
+      "source": "benchmark_short_empty.py",
+      "source_sha256": "57a908963390134ade9d5edf1d39f228a3f6c98bd6e3331a52722f4eb12e9724",
+      "runtime_ast_sha256": "75dda4bb249e9aa8a123003cd22fc2d80aa7a2e04bc598ca44c26eb1046cb1f5"
+    },
+    {
+      "module": "query_scheduler",
+      "name": "receiver_classes.QueryRecord",
+      "source_repository": "campaign",
+      "source": "consolidated_receivers_2026_10_27_v2.py",
+      "source_sha256": "996a073bdc453cca9ab20082bd7cb31dd29d78fa15298495a1f4ff88a5cdeec1",
+      "runtime_ast_sha256": "694b03e798db85d1745bc14375dfd2005948b357a88008ab1359356db22713d2"
+    },
+    {
+      "module": "warmup",
+      "name": "warm_backends",
+      "source_repository": "campaign",
+      "source": "campaign_pilot.py",
+      "source_sha256": "1bb8da57c60786a76305d31c1aea262d2dd17b3091794a06d1b8ae681c60c5e6",
+      "runtime_ast_sha256": "dad0eb0eba7e181cdd0033d631d2e7a98cc5824637c5105f8be2f2c94579ba8e"
+    }
+  ],
+  "import_rewrites": {
+    "sliding_classical": "coherent",
+    "sliding_frontend": "frontend",
+    "sliding_spec": "parameters",
+    "gpu_motion_warp_triton": "warp",
+    "latency_verifier": "verifier",
+    "adaptive_campaign_phase_2026_10_22": "refinement",
+    "literature_kt_lvd_gpu_2026_10_27": "kt_product"
+  },
+  "old_kt_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+  "adaptations": [
+    "Comments/docstrings removed; credits retained separately.",
+    "Imports route to packaged equivalents; numerical bodies preserved.",
+    "Unused legacy constructors/methods omitted; explicit runtime initialization supplies pinned parameters.",
+    "All selected native calls explicitly supply rate batching; unused profiling fallback is not read."
+  ]
+}

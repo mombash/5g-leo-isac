@@ -1,0 +1,94 @@
+{
+  "passed": true,
+  "source_commits": {
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "source_class_sha256": "fc0c637a7b880c0922668fde79def6d5a723817f0d654c7451e8b695f7325bfd",
+  "slice_frames": 1,
+  "slice_duration_s": 0.02,
+  "generated_raw_inputs": [
+    {
+      "name": "reference",
+      "shape": [
+        921600
+      ],
+      "dtype": "complex64",
+      "bitwise_equal": true,
+      "sha256": "2dd63e3876ee85fbd296e44cdca079309d301579087de94bf6b42f983f1f684a"
+    },
+    {
+      "name": "observation",
+      "shape": [
+        614400
+      ],
+      "dtype": "complex64",
+      "bitwise_equal": true,
+      "sha256": "f67e0866a802963257d0bd7b9cc9b6c950feff13f076f48a975a47d99482e10a"
+    },
+    {
+      "name": "alignment",
+      "shape": [
+        1,
+        2
+      ],
+      "dtype": "float64",
+      "bitwise_equal": true,
+      "sha256": "3b98bfd52066d39acbeb97285dc377e9e37c143bbbaeda7293a479adbe8bfcf6"
+    }
+  ],
+  "original_scene_and_seeds_preserved": true,
+  "waveform_sha256": "359c99dff931059034b5a03f0c023f2d4e17d65b8d6cf95d14ba34c46baee6e6",
+  "waveform_metadata": {
+    "scope": "Sliced NR smoke; not a recovered 402-frame waveform",
+    "frames": 3,
+    "samples": 921600,
+    "sample_rate_Hz": 30720000.0,
+    "cell_id": 805,
+    "payload_seed": 8260699.0,
+    "control_seed": 4822,
+    "native_power": 0.0005615079903654796,
+    "average_power": 0.9999999999999999,
+    "generation_s": 6.538608,
+    "normalization_scope": "This short generated waveform only; full-waveform normalization not verified",
+    "matlab_release": "2026a",
+    "fiveg_toolbox_license": false
+  },
+  "source_manifest_sha256": "2ccfa78d86c509a900d9b82a6ce893c0f2a28f8c4c3ffc1807535d02de815125",
+  "elapsed_s": 0.7879938659607433,
+  "full_waveform_or_recording_reproduced": false,
+  "native_source_validation": "Native helper separately matched current source on 200 interpolation values.",
+  "limitations": [
+    "Three-frame NR waveform normalized over that slice only.",
+    "Twenty-ms raw target slice, same supplied waveform in both paths.",
+    "Not a recovered evaluated recording or a detection/performance experiment."
+  ],
+  "actual_nr_generation_completed": true,
+  "matlab_release": "2026a",
+  "license_test_query_returned_false": true,
+  "license_expiry_notice_days": 2,
+  "matlab_generation_log_sha256": "2e08f42e4c371957c85ffa4c9efda1d098b7f5fae269235bea160357b14ff282",
+  "license_interpretation": "Waveform functions executed successfully; the false feature-name test query is not interpreted as unavailable functionality.",
+  "installed_final_wheel_matlab_helper": {
+    "passed": true,
+    "wheel_sha256": "eb8f0bfd8bfbd4ab9e6d2c9c842f76967ba3aecec2b1055a34a47cb4a7c5aee8",
+    "waveform_bitwise_identical_to_prior_smoke": true,
+    "waveform_sha256": "359c99dff931059034b5a03f0c023f2d4e17d65b8d6cf95d14ba34c46baee6e6",
+    "matlab_output_metadata": {
+      "scope": "Sliced NR smoke; not a recovered 402-frame waveform",
+      "frames": 3,
+      "samples": 921600,
+      "sample_rate_Hz": 30720000.0,
+      "cell_id": 805,
+      "payload_seed": 8260699.0,
+      "control_seed": 4822,
+      "native_power": 0.0005615079903654796,
+      "average_power": 0.9999999999999999,
+      "generation_s": 6.513861,
+      "normalization_scope": "This short generated waveform only; full-waveform normalization not verified",
+      "matlab_release": "2026a",
+      "fiveg_license_test_query": false
+    },
+    "log_sha256": "fce3e110828135e53ad9d2dba6924ef526a757b3ee8a1853a7ebe93194c03552"
+  }
+}

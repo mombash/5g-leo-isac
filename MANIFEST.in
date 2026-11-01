@@ -1,0 +1,8 @@
+include pyproject.toml README.md RIGHTS.md THIRD_PARTY_NOTICES.md requirements-cpu.lock requirements-gpu.lock
+recursive-include src/leo_ofdm_repro *.py *.json *.md *.m *.cpp
+include docs/RUNNING.md docs/SOURCE_MAP.md validation/CHECKPOINT.md
+prune artifacts
+prune selected_assets
+prune provenance
+prune tests
+prune tools

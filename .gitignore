@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+.local/
+.test-tmp/
+build/
+dist/
+*.egg-info/
+raw/
+raw-slice/
+scratch/
+checks/
+inputs/
+*.c64
+*.so
+.env
+.env.*

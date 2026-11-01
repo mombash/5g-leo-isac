@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_commits": {
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "scope": "Packaged n256 configuration, full occupancy, 1-frame carrier construction and waveform-builder parsing only.",
+  "waveform_iq_generated": false,
+  "full_waveform_regeneration_verified": false,
+  "license_active_at_check": true,
+  "license_expiry_notice_days": 2
+}

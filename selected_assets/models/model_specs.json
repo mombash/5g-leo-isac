@@ -1,0 +1,12 @@
+{
+  "linear_summary_alpha0.1": {
+    "family": "linear",
+    "rich": false,
+    "checkpoint": "linear_summary_alpha0.1.npz"
+  },
+  "query_rich_step1000": {
+    "family": "neural",
+    "rich": true,
+    "checkpoint": "query_rich_step1000.pt"
+  }
+}

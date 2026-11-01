@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "tests_run": 13,
+  "skipped": [],
+  "failures": 0,
+  "errors": 0,
+  "test_ids": [
+    "clean_checks.Scoring.test_actual_float32_threshold_rounding",
+    "clean_checks.Scoring.test_all_saved_current_campaign_examples",
+    "clean_checks.Scoring.test_any_empty_false_alert_survives_negative_final",
+    "clean_checks.Scoring.test_duplicate_event_indices_rejected",
+    "clean_checks.Scoring.test_events_cannot_precede_available_samples",
+    "clean_checks.Scoring.test_first_correct_survives_wrong_final",
+    "clean_checks.Scoring.test_first_positive_is_distinct_from_first_check",
+    "clean_checks.Scoring.test_later_correct_does_not_erase_wrong_first",
+    "clean_checks.Scoring.test_miss_retains_terminal_time",
+    "clean_checks.Scoring.test_mixture_weight_is_not_inferred_from_counts",
+    "clean_checks.SelectedAssets.test_empty_manifest_not_a_valid_selected_bundle",
+    "clean_checks.SelectedAssets.test_genuine_assets",
+    "clean_checks.SelectedAssets.test_tampered_prior_and_rewritten_manifest_rejected"
+  ],
+  "test_file_sha256": "6d5853bca8f09ade1efaf57a4a24df7210b91fe8ad54d1542389901a8efcdf5f",
+  "namespace": "leo_ofdm_repro",
+  "scope": "Standalone behavioral and selected-asset contracts; no campaign, training or GPU execution."
+}
