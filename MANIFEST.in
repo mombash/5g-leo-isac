@@ -1,5 +1,5 @@
 include pyproject.toml README.md RIGHTS.md THIRD_PARTY_NOTICES.md requirements-cpu.lock requirements-gpu.lock
-recursive-include src/leo_ofdm_repro *.py *.json *.json.gz *.md *.m *.cpp
+recursive-include src/fiveg_leo_isac *.py *.json *.json.gz *.md *.m *.cpp
 include docs/USAGE.md docs/REPRODUCIBILITY.md
 prune selected_assets
 prune tests

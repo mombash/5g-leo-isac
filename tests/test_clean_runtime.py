@@ -5,10 +5,10 @@ from pathlib import Path
 import shutil
 import tempfile
 import unittest
-from leo_ofdm_repro.scoring import score_emissions,standardized_metrics,InvalidEvidence
-from leo_ofdm_repro.numerics import float32_up
-from leo_ofdm_repro.examples import scoring_check
-from leo_ofdm_repro.assets import Assets,configuration
+from fiveg_leo_isac.scoring import score_emissions,standardized_metrics,InvalidEvidence
+from fiveg_leo_isac.numerics import float32_up
+from fiveg_leo_isac.examples import scoring_check
+from fiveg_leo_isac.assets import Assets,configuration
 
 
 class Scoring(unittest.TestCase):

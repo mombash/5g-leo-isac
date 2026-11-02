@@ -1,0 +1,222 @@
+{
+  "asset_sha256": {
+    "models/neural_selector.pt": "b92a337ab28a6690caaef1a361a882a063e8d8fffef54918849d7e3c632748ca",
+    "models/statistical_selector.npz": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
+    "models/model_specs.json": "14d003df2a423ce28d68b43afa1c866a0bd472b7bfc158235cd85a3e0a7679f1",
+    "models/normalization.npz": "989c6605984d833f76121f629ce5c602195d1450515931bd3798b45d5b15030a",
+    "physical_configuration.json": "0bb74daf980c35b07261fa06c856aef91688e222208d1af52461dd52cc60be31",
+    "policies/final_gate/freeze.json": "0423a869f41498fed3f1d5d467c2a7d46aa776d61931d1af855d600320ba9d9f",
+    "policies/phase_refinement/rate_prior.npy": "2cef7cabfe2919b6f626be72d18ab565204bec13d857fee3a28579b61a151a49"
+  },
+  "controls": {
+    "adaptive-neural-full-final": {
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-neural-full-final",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "label": "Neural search selection with a full final search",
+      "full_final_search": true,
+      "selector_model": "adaptive-neural",
+      "implementation": "adaptive",
+      "role": "component-control"
+    },
+    "adaptive-statistical-full-final": {
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-statistical-full-final",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "label": "Statistical search selection with a full final search",
+      "full_final_search": true,
+      "selector_model": "adaptive-statistical",
+      "implementation": "adaptive",
+      "role": "component-control"
+    },
+    "adaptive-classical-full-final": {
+      "budgets": [
+        9,
+        9
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-classical-full-final",
+      "kind": "simple",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "label": "Adaptive classical search with a full final search",
+      "full_final_search": true,
+      "selector_model": null,
+      "implementation": "adaptive",
+      "role": "component-control"
+    }
+  },
+  "gate": {
+    "cutoff": 28.41327667236328,
+    "kind": "physical",
+    "safety": "train_and_development"
+  },
+  "methods": {
+    "adaptive-neural": {
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-neural",
+      "kind": "simple",
+      "label": "Neural search selection",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "selector_model": "adaptive-neural",
+      "implementation": "adaptive",
+      "role": "proposed"
+    },
+    "adaptive-statistical": {
+      "budgets": [
+        5,
+        5
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-statistical",
+      "kind": "simple",
+      "label": "Statistical search selection",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "selector_model": "adaptive-statistical",
+      "implementation": "adaptive",
+      "role": "proposed"
+    },
+    "adaptive-classical": {
+      "budgets": [
+        9,
+        9
+      ],
+      "family": "adaptive",
+      "first_k": 9,
+      "id": "adaptive-classical",
+      "kind": "simple",
+      "label": "Adaptive classical search",
+      "policy": {
+        "k": 9
+      },
+      "threshold": 28.148725509643555,
+      "selector_model": null,
+      "implementation": "adaptive",
+      "role": "proposed"
+    },
+    "exhaustive-classical": {
+      "family": "exhaustive",
+      "id": "exhaustive-classical",
+      "kind": "simple",
+      "label": "Exhaustive classical search",
+      "policy": {
+        "k": 27,
+        "looks": [
+          6
+        ]
+      },
+      "threshold": 28.148725509643555,
+      "implementation": "exhaustive",
+      "role": "reference"
+    },
+    "dual-scale": {
+      "family": "literature_classical",
+      "id": "dual-scale",
+      "kind": "simple",
+      "label": "Dual-scale search",
+      "policy": {
+        "k": 27,
+        "looks": [
+          6
+        ]
+      },
+      "threshold": 28.148725509643555,
+      "implementation": "dual-scale",
+      "role": "literature-comparison"
+    },
+    "two-step-fixed": {
+      "id": "two-step-fixed",
+      "label": "Two-step detection, fixed look",
+      "policy": {
+        "final": 0.0,
+        "first_s": 1.0,
+        "lower": 23.76351928710938,
+        "second_s": 0.0,
+        "upper": 23.76351928710938
+      },
+      "implementation": "two-step",
+      "role": "literature-comparison"
+    },
+    "two-step-early": {
+      "id": "two-step-early",
+      "label": "Two-step detection, early look",
+      "policy": {
+        "final": 10.905735015869142,
+        "first_s": 0.8,
+        "lower": 13.815510557964274,
+        "second_s": 0.19999999999999996,
+        "upper": 24.485969543457035
+      },
+      "implementation": "two-step",
+      "round_bounds_up": true,
+      "role": "literature-comparison"
+    },
+    "hybrid-integration": {
+      "approximation": "One-second 5G NR adaptation with positive-lag finite discretization and a calibrated maximum-score threshold.",
+      "batch_delays": 32,
+      "id": "hybrid-integration",
+      "label": "Hybrid integration (keystone alignment and Lv\u2019s distribution)",
+      "lag_block": 256,
+      "nt": 4000,
+      "search_workers": 1,
+      "source_sha256": "d0a39b0894238572c66b23e36cd6a9912377ffbe4ddb628146b69fa9127fe5b7",
+      "threshold": 4.297408668207936e-05,
+      "time_transform": "matrix",
+      "implementation": "hybrid-integration",
+      "role": "literature-comparison"
+    }
+  },
+  "model_provenance": {
+    "adaptive-neural": {
+      "asset": "models/neural_selector.pt",
+      "sha256": "b92a337ab28a6690caaef1a361a882a063e8d8fffef54918849d7e3c632748ca"
+    },
+    "adaptive-statistical": {
+      "asset": "models/statistical_selector.npz",
+      "sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
+    }
+  },
+  "operating_point": {
+    "name": "paper-receiver",
+    "sha256": "74285fbebead2b1cfb0383a9e5c9982849dd58afa405fa47e3e72af6e4a3f0e1"
+  },
+  "schema": 2,
+  "source_commits": {
+    "campaign": "495f4f757464f8edda0a1d4fe457e74c0e5f232d",
+    "source": "194f43575a482fcd316a78e5805a6786462bfcb2"
+  },
+  "threshold_semantics": "Dimensionless detection scores; the two-step early-look bounds are rounded upward to float32 at execution."
+}

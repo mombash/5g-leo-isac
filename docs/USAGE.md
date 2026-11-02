@@ -5,9 +5,9 @@ Run commands from the repository root after the CPU or GPU installation in the [
 ## Inspect stored results and input cohorts
 
 ```sh
-.venv/bin/python -m leo_ofdm_repro results
-.venv/bin/python -m leo_ofdm_repro example
-.venv/bin/python -m leo_ofdm_repro cohorts
+.venv/bin/python -m fiveg_leo_isac results
+.venv/bin/python -m fiveg_leo_isac example
+.venv/bin/python -m fiveg_leo_isac cohorts
 ```
 
 `results` reaggregates saved detections and timestamps, including paired bootstrap confidence intervals. `example` checks the alert scorer on 40 small saved examples. Neither runs a receiver. `cohorts` lists the scene/seed metadata that can be exported for explicit regeneration.
@@ -19,9 +19,9 @@ The following sequence starts with one supplied UAV scene. It computes geometry,
 ### 1. Export a scene and compute geometry
 
 ```sh
-.venv/bin/python -m leo_ofdm_repro export-inputs \
+.venv/bin/python -m fiveg_leo_isac export-inputs \
   --cohort example --waveform-root "$PWD/work/waveforms" --output work/inputs
-.venv/bin/python -m leo_ofdm_repro prepare-geometry \
+.venv/bin/python -m fiveg_leo_isac prepare-geometry \
   --assets selected_assets --inputs work/inputs --output work/geometry
 ```
 
@@ -34,8 +34,8 @@ For a supplied scene outside this example, `geometry --assets selected_assets --
 Received-signal synthesis uses the included C++ interpolation source. Install `g++` with OpenMP support, then run:
 
 ```sh
-.venv/bin/python -m leo_ofdm_repro build-interpolator --output work/kernels.so
-export LEO_OFDM_KERNEL_LIBRARY="$PWD/work/kernels.so"
+.venv/bin/python -m fiveg_leo_isac build-interpolator --output work/kernels.so
+export FIVEG_LEO_ISAC_KERNEL_LIBRARY="$PWD/work/kernels.so"
 ```
 
 The environment variable must remain set when running `generate`. This library is used for synthesis; receiver inference uses the PyTorch/Triton operators.
@@ -46,7 +46,7 @@ MATLAB R2026a with working 5G Toolbox waveform functions is the tested configura
 
 ```sh
 mkdir -p work/waveforms
-MATLAB_HELPERS="$(.venv/bin/python -m leo_ofdm_repro matlab-path)"
+MATLAB_HELPERS="$(.venv/bin/python -m fiveg_leo_isac matlab-path)"
 matlab -batch "addpath('$MATLAB_HELPERS'); maxNumCompThreads(4); meta=jsondecode(fileread('work/inputs/inputs.json')); generate_waveforms('work/inputs', meta.split, 1);"
 ```
 
@@ -67,7 +67,7 @@ This writes 30 ms of waveform (about 7.4 MB). It is sufficient for the 20 ms sli
 With a complete waveform, generate the exported four-second recording:
 
 ```sh
-.venv/bin/python -m leo_ofdm_repro generate \
+.venv/bin/python -m fiveg_leo_isac generate \
   --assets selected_assets --manifest-directory work/inputs \
   --geometry-root work/geometry --contract work/inputs/contract.json \
   --scratch-root work/cache --output work/raw
@@ -80,7 +80,7 @@ Raw reference and observation arrays alone occupy about **494 MB for one second*
 With the short waveform, use a new output directory and add `--smoke-frames 1`:
 
 ```sh
-.venv/bin/python -m leo_ofdm_repro generate \
+.venv/bin/python -m fiveg_leo_isac generate \
   --assets selected_assets --manifest-directory work/inputs \
   --geometry-root work/geometry --contract work/inputs/contract.json \
   --scratch-root work/slice-cache --smoke-frames 1 --output work/raw-slice
@@ -105,8 +105,8 @@ Samples use 30.72 MHz sampling and 18.36 MHz occupied bandwidth. Supplied alignm
 Use the GPU environment after producing a full recording:
 
 ```sh
-.venv-gpu/bin/python -m leo_ofdm_repro paced \
-  --assets selected_assets --method neural \
+.venv-gpu/bin/python -m fiveg_leo_isac paced \
+  --assets selected_assets --method adaptive-neural \
   --reference work/raw/reference.npy --observation work/raw/observation.npy \
   --alignment work/raw/alignment.npy --output work/neural.json
 ```
@@ -116,8 +116,8 @@ Four seconds produces four one-second attempts. Each attempt uses its own observ
 Before the clock starts, the command prepares a second of data, warms the required physical stage shapes and warms both persistent search streams. By default it uses the receiver input for warmup. To use the paper's disjoint calibration warmup protocol, supply all three arrays from a separate calibration recording:
 
 ```sh
-.venv-gpu/bin/python -m leo_ofdm_repro paced \
-  --assets selected_assets --method neural \
+.venv-gpu/bin/python -m fiveg_leo_isac paced \
+  --assets selected_assets --method adaptive-neural \
   --reference work/raw/reference.npy --observation work/raw/observation.npy \
   --alignment work/raw/alignment.npy \
   --warmup-reference work/calibration/reference.npy \
@@ -133,8 +133,8 @@ Warmup changes initialization, not thresholds or model weights. `timing_valid: t
 If correlations have already been computed, run one attempt directly:
 
 ```sh
-.venv-gpu/bin/python -m leo_ofdm_repro prepared \
-  --assets selected_assets --method neural \
+.venv-gpu/bin/python -m fiveg_leo_isac prepared \
+  --assets selected_assets --method adaptive-neural \
   --correlation work/prepared/correlation.npy --variance work/prepared/variance.npy \
   --output work/prepared-neural.json
 ```

@@ -1,10 +1,10 @@
 {
-  "neural": {
+  "adaptive-neural": {
     "family": "neural",
     "rich": true,
     "checkpoint": "neural_selector.pt"
   },
-  "statistical": {
+  "adaptive-statistical": {
     "family": "linear",
     "rich": false,
     "checkpoint": "statistical_selector.npz"

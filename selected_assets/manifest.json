@@ -6,8 +6,8 @@
   "files": [
     {
       "path": "models/neural_selector.pt",
-      "bytes": 2262930,
-      "sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8"
+      "bytes": 2262792,
+      "sha256": "b92a337ab28a6690caaef1a361a882a063e8d8fffef54918849d7e3c632748ca"
     },
     {
       "path": "models/statistical_selector.npz",
@@ -16,8 +16,8 @@
     },
     {
       "path": "models/model_specs.json",
-      "bytes": 215,
-      "sha256": "83dcd819d0f267f20397ddd49c0f59a1a43f5ed0758d10e52b713029c16ccb63"
+      "bytes": 233,
+      "sha256": "14d003df2a423ce28d68b43afa1c866a0bd472b7bfc158235cd85a3e0a7679f1"
     },
     {
       "path": "models/normalization.npz",
@@ -41,15 +41,13 @@
     }
   ],
   "model_provenance": {
-    "neural": {
+    "adaptive-neural": {
       "asset": "models/neural_selector.pt",
-      "exported_asset_sha256": "e64a8c0b775c7b4862eb1f426ca0c5945d91061845c63406c481afd8401adeb8",
-      "original_checkpoint_sha256": "576b78e35a3d966199e588ca3bc9ee2209fe7cebc09023ea40208f93e9bd6be3"
+      "sha256": "b92a337ab28a6690caaef1a361a882a063e8d8fffef54918849d7e3c632748ca"
     },
-    "statistical": {
+    "adaptive-statistical": {
       "asset": "models/statistical_selector.npz",
-      "exported_asset_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d",
-      "original_checkpoint_sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
+      "sha256": "49b07366253aa2fcdc1f3c6ae08048e0d206ad5165dff7768bc2cba6183d626d"
     }
   }
 }
